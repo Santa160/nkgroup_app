@@ -1,11 +1,11 @@
-import 'dart:developer';
-
+import 'package:auto_route/auto_route.dart';
 import 'package:country_calling_code_picker/country.dart';
 import 'package:country_calling_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:nkgroup/src/core/core.dart';
 import 'package:nkgroup/src/core/reuseable/bg.dart';
 import 'package:nkgroup/src/fake%20data/fake_data.dart';
+import 'package:nkgroup/src/router/router.dart';
 
 Column appWelcome() {
   return Column(
@@ -145,11 +145,16 @@ SizedBox kSubmitButton(
           child: Text(title)));
 }
 
-AppBar appBar(String title) {
+AppBar appBar(BuildContext context, String title) {
   return AppBar(
-    leading: const Icon(
-      Icons.arrow_back_ios_new,
-      size: 12,
+    leading: IconButton(
+      icon: const Icon(
+        Icons.arrow_back_ios_new,
+        size: 12,
+      ),
+      onPressed: () {
+        context.router.pop();
+      },
     ),
     elevation: 0,
     backgroundColor: Colors.transparent,
@@ -158,7 +163,7 @@ AppBar appBar(String title) {
   );
 }
 
-Drawer myDrawer() {
+Drawer myDrawer(BuildContext context) {
   return Drawer(
     child: BackgroundWrapper(
       child: SafeArea(
@@ -176,44 +181,53 @@ Drawer myDrawer() {
                 ),
                 mediumGap(),
                 ...FakeData.drawerlist.map((e) {
-                  return IgnorePointer(
-                    ignoring: !e['dropdonw'],
-                    child: ExpansionTile(
-                      expandedCrossAxisAlignment: CrossAxisAlignment.start,
-                      iconColor: Colors.white,
-                      collapsedIconColor: Colors.white,
-                      leading: e["icon"],
-                      title: Text(
-                        e['title'],
-                        style: const TextStyle(
-                          color: Colors.white,
+                  return InkWell(
+                    onTap: () {
+                      if (e['title'] == 'Add New Member') {
+                        context.router.push(const AddMemberRoute());
+                      }
+                    },
+                    child: IgnorePointer(
+                      ignoring: !e['dropdonw'],
+                      child: ExpansionTile(
+                        expandedCrossAxisAlignment: CrossAxisAlignment.start,
+                        iconColor: Colors.white,
+                        collapsedIconColor: Colors.white,
+                        leading: e["icon"],
+                        title: Text(
+                          e['title'],
+                          style: const TextStyle(
+                            color: Colors.white,
+                          ),
                         ),
+                        trailing: !e['dropdonw']
+                            ? const SizedBox()
+                            : const Icon(Icons.arrow_drop_down),
+                        children: [
+                          InkWell(
+                            onTap: () => context.router
+                                .push(HelpRoute(appBarTile: "Help Given")),
+                            child: const Padding(
+                              padding: EdgeInsets.all(15),
+                              child: Text(
+                                "Help Given",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () => context.router
+                                .push(HelpRoute(appBarTile: "Help Received")),
+                            child: const Padding(
+                              padding: EdgeInsets.all(15),
+                              child: Text(
+                                "Help Received",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                      trailing: !e['dropdonw']
-                          ? const SizedBox()
-                          : const Icon(Icons.arrow_drop_down),
-                      children: [
-                        InkWell(
-                          onTap: () => log("Pressed"),
-                          child: const Padding(
-                            padding: EdgeInsets.all(15),
-                            child: Text(
-                              "Help Given",
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          ),
-                        ),
-                        InkWell(
-                          onTap: () => log("Pressed"),
-                          child: const Padding(
-                            padding: EdgeInsets.all(15),
-                            child: Text(
-                              "Help Received",
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          ),
-                        ),
-                      ],
                     ),
                   );
                 }).toList()

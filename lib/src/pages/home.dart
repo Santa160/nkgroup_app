@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
     return BackgroundWrapper(
         child: Scaffold(
       key: _key,
-      drawer: myDrawer(),
+      drawer: myDrawer(context),
       backgroundColor: Colors.transparent,
       body: SafeArea(
         child: Padding(

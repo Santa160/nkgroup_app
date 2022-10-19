@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:nkgroup/src/core/core.dart';
-import 'package:nkgroup/src/pages/home.dart';
+
+import '../pages/donation.page.dart';
 // import 'package:nkgroup/src/router/router.dart';
 
 class MyApp extends StatelessWidget {
@@ -23,8 +24,7 @@ class MyApp extends StatelessWidget {
             fillColor: MaterialStateColor.resolveWith(
                 (states) => Colors.white), //<-- SEE HERE
           )),
-
-      home: const HomePage(),
+      home: const DonationPage(),
     );
   }
 }

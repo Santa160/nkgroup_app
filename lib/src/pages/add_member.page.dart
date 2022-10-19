@@ -1,7 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:country_calling_code_picker/picker.dart';
 import 'package:flutter/material.dart';
 import 'package:nkgroup/src/core/core.dart';
 import 'package:nkgroup/src/core/reuseable/bg.dart';
+import 'package:nkgroup/src/router/router.dart';
 
 class AddMemberPage extends StatefulWidget {
   const AddMemberPage({super.key});
@@ -32,7 +34,7 @@ class _AddMemberPageState extends State<AddMemberPage> {
   Widget build(BuildContext context) {
     return BackgroundWrapper(
       child: Scaffold(
-        appBar: appBar('Add Member'),
+        appBar: appBar(context, 'Add Member'),
         backgroundColor: Colors.transparent,
         resizeToAvoidBottomInset: false,
         body: Padding(
@@ -71,7 +73,10 @@ class _AddMemberPageState extends State<AddMemberPage> {
                   // kSubmitButton(
                   //     context, () => context.router.push(const HomeRoute())),
                   mediumGap(),
-                  kSubmitButton(context, () {}, 'Submit')
+                  kSubmitButton(
+                      context,
+                      () => context.router.push(const VerifyOtpRoute()),
+                      'Submit')
                 ],
               )),
         ),

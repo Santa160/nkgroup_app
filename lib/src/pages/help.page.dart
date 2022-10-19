@@ -11,7 +11,7 @@ class HelpPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BackgroundWrapper(
       child: Scaffold(
-        appBar: appBar(appBarTile),
+        appBar: appBar(context, appBarTile),
         backgroundColor: Colors.transparent,
         body: Padding(
           padding: globalPading(),

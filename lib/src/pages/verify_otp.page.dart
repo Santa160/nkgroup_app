@@ -1,6 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:nkgroup/src/core/core.dart';
 import 'package:nkgroup/src/core/reuseable/bg.dart';
+import 'package:nkgroup/src/router/router.dart';
 
 class VerifyOtpPage extends StatelessWidget {
   const VerifyOtpPage({super.key});
@@ -10,7 +12,7 @@ class VerifyOtpPage extends StatelessWidget {
     return BackgroundWrapper(
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: appBar("Verify Phone"),
+        appBar: appBar(context, "Verify Phone"),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
           child: Column(
@@ -72,6 +74,7 @@ class VerifyOtpPage extends StatelessWidget {
                               mediumGap(),
                               kSubmitButton(context, () {
                                 Navigator.pop(context);
+                                context.router.push(const DonationRoute());
                               }, "Okay")
                             ],
                           ),
