@@ -8,12 +8,29 @@ class ReceiverDetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ===================================
     const colors = Colors.white;
+    const double size20 = 20;
+    const double size28 = 28;
+    const double size16 = 16;
+    const double size18 = 18;
+    const double size15 = 15;
+    const color70 = Colors.white70;
+
+    const fontWeight800 = FontWeight.w800;
     const styleColor = TextStyle(color: Colors.white);
+
+    // TextStyle _textStyle (Colors colors , FontWeight fontWeight){
+    //   return TextStyle(color: color ,fontWeight: fontWeight );
+    // }
+    // ======================================
     return BackgroundWrapper(
         child: Scaffold(
       appBar: AppBar(
-        title: const Text('Receiver Details'),
+        title: const Text(
+          'Receiver Details',
+          style: TextStyle(fontSize: size20, fontWeight: fontWeight800),
+        ),
         leading: const Icon(
           Icons.arrow_back_ios,
           size: 12,
@@ -32,7 +49,10 @@ class ReceiverDetailsPage extends StatelessWidget {
               children: const [
                 Text(
                   'Receiver Name',
-                  style: TextStyle(color: colors, fontSize: 20),
+                  style: TextStyle(
+                      color: colors,
+                      fontSize: size28,
+                      fontWeight: fontWeight800),
                 )
               ],
             ),
@@ -48,7 +68,7 @@ class ReceiverDetailsPage extends StatelessWidget {
                 ),
                 Text(
                   '+91 9366304598',
-                  style: styleColor,
+                  style: TextStyle(fontSize: size16, color: colors),
                 )
               ],
             ),
@@ -64,14 +84,17 @@ class ReceiverDetailsPage extends StatelessWidget {
                 ),
                 Text(
                   "₹1000/ \$12",
-                  style: styleColor,
+                  style: TextStyle(fontSize: size16, color: colors),
                 ),
               ],
             ),
             mediumGap(),
             const Text(
               'Payment Method',
-              style: TextStyle(color: Colors.white, fontSize: 15),
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: size18,
+                  fontWeight: fontWeight800),
             ),
             smallGap(),
             Container(
@@ -101,14 +124,15 @@ class ReceiverDetailsPage extends StatelessWidget {
                 children: [
                   TextSpan(
                     text: 'Account No',
-                    style: TextStyle(color: Colors.white70),
+                    style: TextStyle(color: color70, fontSize: size16),
                   ),
                   TextSpan(
                     text: ":",
                   ),
                   TextSpan(
                     text: ' 7899 4566 1321',
-                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        fontSize: size16, fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
@@ -119,14 +143,15 @@ class ReceiverDetailsPage extends StatelessWidget {
                 children: [
                   TextSpan(
                     text: 'Branch',
-                    style: TextStyle(color: Colors.white70),
+                    style: TextStyle(color: color70, fontSize: size16),
                   ),
                   TextSpan(
                     text: ":",
                   ),
                   TextSpan(
                     text: ' Porompat',
-                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        fontSize: size16, fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
@@ -137,14 +162,15 @@ class ReceiverDetailsPage extends StatelessWidget {
                 children: [
                   TextSpan(
                     text: 'Bank Code (IFSC Code)',
-                    style: TextStyle(color: Colors.white70),
+                    style: TextStyle(color: color70, fontSize: size16),
                   ),
                   TextSpan(
                     text: ":",
                   ),
                   TextSpan(
                     text: 'SBI8944S',
-                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        fontSize: size16, fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
@@ -155,14 +181,15 @@ class ReceiverDetailsPage extends StatelessWidget {
                 children: [
                   TextSpan(
                     text: 'Contact No',
-                    style: TextStyle(color: Colors.white70),
+                    style: TextStyle(color: color70, fontSize: size16),
                   ),
                   TextSpan(
                     text: ":",
                   ),
                   TextSpan(
                     text: '+91 0000 000 000',
-                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        fontSize: size16, fontWeight: FontWeight.bold),
                   ),
                 ],
               ),

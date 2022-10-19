@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:nkgroup/src/core/core.dart';
 
-import '../pages/Receiver/payement_details.page.dart';
+import '../pages/Receiver/payment_method.dart';
 
 // import 'package:nkgroup/src/router/router.dart';
 
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Roboto',
       ),
-      home: const PaymentDetailsPage(),
+      home: const PaymentMethodPage(),
     );
   }
 }

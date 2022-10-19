@@ -8,12 +8,21 @@ class PaymentDetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ====================================
     const colorStyle = Colors.white;
+    const double size18 = 18;
+    const double size16 = 16;
+    const double size14 = 14;
+    const double size20 = 20;
+    // =======================================
     return BackgroundWrapper(
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
-          title: const Text('Payment Details'),
+          title: const Text(
+            'Payment Details',
+            style: TextStyle(fontSize: size20, fontWeight: FontWeight.w800),
+          ),
           leading: const Icon(
             Icons.arrow_back_ios,
             size: 12,
@@ -31,24 +40,19 @@ class PaymentDetailsPage extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: const [
-                    Text(
-                      'Please select the payment method,',
-                      style: TextStyle(color: colorStyle),
+                    Flexible(
+                      child: Text(
+                        'Please select the payment method,'
+                        ' you  have used',
+                        style: TextStyle(
+                            color: colorStyle,
+                            fontSize: size18,
+                            fontWeight: FontWeight.w800),
+                      ),
                     ),
                   ],
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: const [
-                    Text(
-                      'you  have used',
-                      style: TextStyle(color: colorStyle),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
+                smallGap(),
                 Container(
                   decoration: BoxDecoration(
                     color: Colors.white.withOpacity(0.3),
@@ -64,7 +68,8 @@ class PaymentDetailsPage extends StatelessWidget {
                           padding: EdgeInsets.symmetric(horizontal: 15),
                           child: Text(
                             'State Bank of India',
-                            style: TextStyle(color: colorStyle),
+                            style:
+                                TextStyle(color: colorStyle, fontSize: size16),
                           ),
                         ),
                         onChanged: (value) {
@@ -79,7 +84,7 @@ class PaymentDetailsPage extends StatelessWidget {
                   children: const [
                     Text(
                       'Payment for',
-                      style: TextStyle(color: colorStyle),
+                      style: TextStyle(color: colorStyle, fontSize: size18),
                     ),
                   ],
                 ),
@@ -148,20 +153,25 @@ class PaymentDetailsPage extends StatelessWidget {
                         SizedBox(
                           width: 5,
                         ),
-                        Text(
-                          'I declare, that I am donating this amount of my ',
-                          style: TextStyle(color: colorStyle),
+                        Flexible(
+                          child: Text(
+                            'I declare, that I am donating this amount of my  own free will and agree to all T&C ',
+                            style: TextStyle(
+                                color: colorStyle,
+                                fontWeight: FontWeight.w600,
+                                fontSize: size14),
+                          ),
                         )
                       ],
                     ),
-                    Row(
-                      children: const [
-                        Text(
-                          '  own free will and agree to all T&C',
-                          style: TextStyle(color: colorStyle),
-                        ),
-                      ],
-                    )
+                    // Row(
+                    //   children: const [
+                    //     Text(
+                    //       '  own free will and agree to all T&C',
+                    //       style: TextStyle(color: colorStyle),
+                    //     ),
+                    //   ],
+                    // )
                   ],
                 ),
                 mediumGap(),

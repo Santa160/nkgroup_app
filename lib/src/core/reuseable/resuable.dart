@@ -129,7 +129,10 @@ Container kTextField(String hint) {
   );
 }
 
-SizedBox kSubmitButton(BuildContext context, VoidCallback onpress) {
+SizedBox kSubmitButton(
+  BuildContext context,
+  VoidCallback onpress,
+) {
   return SizedBox(
       height: 50,
       width: MediaQuery.of(context).size.width,
