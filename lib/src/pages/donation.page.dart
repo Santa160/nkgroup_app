@@ -1,6 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:nkgroup/src/core/core.dart';
 import 'package:nkgroup/src/core/reuseable/bg.dart';
+import 'package:nkgroup/src/router/router.dart';
 
 class DonationPage extends StatelessWidget {
   const DonationPage({super.key});
@@ -24,7 +26,7 @@ class DonationPage extends StatelessWidget {
               ),
               mediumGap(),
               recieversCard(
-                  true,
+                  'Approval Pending',
                   const Icon(
                     Icons.punch_clock,
                     color: Colors.white,
@@ -32,12 +34,14 @@ class DonationPage extends StatelessWidget {
                   () {}),
               smallGap(),
               recieversCard(
-                  true,
+                  "Approved",
                   const Icon(
                     Icons.check,
                     color: Colors.white,
-                  ),
-                  () {}),
+                  ), () {
+                context.router
+                    .push(ReceiverDetailsWaitingRoute(isApproved: false));
+              }),
               smallGap(),
               recieversCard2(() {})
             ],
@@ -47,7 +51,7 @@ class DonationPage extends StatelessWidget {
     );
   }
 
-  InkWell recieversCard(bool status, Icon icon, VoidCallback onPress) {
+  InkWell recieversCard(String status, Icon icon, VoidCallback onPress) {
     return InkWell(
       onTap: onPress,
       child: Container(
@@ -72,21 +76,16 @@ class DonationPage extends StatelessWidget {
               style:
                   TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
             ),
-            trailing: status
-                ? RichText(
-                    text: TextSpan(
-                      children: [
-                        WidgetSpan(
-                            alignment: PlaceholderAlignment.middle,
-                            child: icon),
-                        const TextSpan(text: ' '),
-                        const TextSpan(
-                            style: TextStyle(fontSize: 12),
-                            text: 'Approval Pending')
-                      ],
-                    ),
-                  )
-                : const Text(''),
+            trailing: RichText(
+              text: TextSpan(
+                children: [
+                  WidgetSpan(
+                      alignment: PlaceholderAlignment.middle, child: icon),
+                  const TextSpan(text: ' '),
+                  TextSpan(style: const TextStyle(fontSize: 12), text: status)
+                ],
+              ),
+            ),
           ),
         ),
       ),

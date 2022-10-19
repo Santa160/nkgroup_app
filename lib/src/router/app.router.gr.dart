@@ -56,6 +56,16 @@ class AppRouter extends _i2.RootStackRouter {
         ),
       );
     },
+    ReceiverDetailsWaitingRoute.name: (routeData) {
+      final args = routeData.argsAs<ReceiverDetailsWaitingRouteArgs>();
+      return _i2.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: _i1.ReceiverDetailsWaitingPage(
+          key: args.key,
+          isApproved: args.isApproved,
+        ),
+      );
+    },
     DonationRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
         routeData: routeData,
@@ -97,6 +107,10 @@ class AppRouter extends _i2.RootStackRouter {
         _i2.RouteConfig(
           HelpRoute.name,
           path: '/help-page',
+        ),
+        _i2.RouteConfig(
+          ReceiverDetailsWaitingRoute.name,
+          path: '/receiver-details-waiting-page',
         ),
         _i2.RouteConfig(
           DonationRoute.name,
@@ -188,6 +202,41 @@ class HelpRouteArgs {
   @override
   String toString() {
     return 'HelpRouteArgs{key: $key, appBarTile: $appBarTile}';
+  }
+}
+
+/// generated route for
+/// [_i1.ReceiverDetailsWaitingPage]
+class ReceiverDetailsWaitingRoute
+    extends _i2.PageRouteInfo<ReceiverDetailsWaitingRouteArgs> {
+  ReceiverDetailsWaitingRoute({
+    _i3.Key? key,
+    required bool isApproved,
+  }) : super(
+          ReceiverDetailsWaitingRoute.name,
+          path: '/receiver-details-waiting-page',
+          args: ReceiverDetailsWaitingRouteArgs(
+            key: key,
+            isApproved: isApproved,
+          ),
+        );
+
+  static const String name = 'ReceiverDetailsWaitingRoute';
+}
+
+class ReceiverDetailsWaitingRouteArgs {
+  const ReceiverDetailsWaitingRouteArgs({
+    this.key,
+    required this.isApproved,
+  });
+
+  final _i3.Key? key;
+
+  final bool isApproved;
+
+  @override
+  String toString() {
+    return 'ReceiverDetailsWaitingRouteArgs{key: $key, isApproved: $isApproved}';
   }
 }
 

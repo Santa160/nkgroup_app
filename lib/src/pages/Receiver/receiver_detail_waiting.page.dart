@@ -1,9 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:nkgroup/src/core/core.dart';
 import 'package:nkgroup/src/core/reuseable/bg.dart';
 
-class ReceiverDetailsWaiting extends StatelessWidget {
-  const ReceiverDetailsWaiting({super.key});
+class ReceiverDetailsWaitingPage extends StatelessWidget {
+  const ReceiverDetailsWaitingPage({super.key, required this.isApproved});
+  final bool isApproved;
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +16,12 @@ class ReceiverDetailsWaiting extends StatelessWidget {
         backgroundColor: Colors.transparent,
         appBar: AppBar(
           title: const Text('Receiver Details'),
-          leading: const Icon(
-            Icons.arrow_back_ios,
-            size: 12,
+          leading: IconButton(
+            onPressed: () => context.router.pop(),
+            icon: const Icon(
+              Icons.arrow_back_ios,
+              size: 12,
+            ),
           ),
           backgroundColor: Colors.transparent,
           elevation: 0,
@@ -26,37 +31,43 @@ class ReceiverDetailsWaiting extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              mediumGap(),
-              Container(
-                height: 38,
-                decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.3),
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(5),
-                  ),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
-                      Icon(
-                        Icons.timer,
-                        color: colors,
+              Visibility(
+                  visible: !isApproved,
+                  child: Column(
+                    children: [
+                      mediumGap(),
+                      Container(
+                        height: 38,
+                        decoration: BoxDecoration(
+                          color: Colors.white.withOpacity(0.3),
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(5),
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 15),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: const [
+                              Icon(
+                                Icons.timer,
+                                color: colors,
+                              ),
+                              Text(
+                                'Waiting for Approval',
+                                style: TextStyle(color: colors),
+                              ),
+                              Text(
+                                '11:05:28',
+                                style: TextStyle(color: colors),
+                              )
+                            ],
+                          ),
+                        ),
                       ),
-                      Text(
-                        'Waiting for Approval',
-                        style: TextStyle(color: colors),
-                      ),
-                      Text(
-                        '11:05:28',
-                        style: TextStyle(color: colors),
-                      )
+                      mediumGap(),
                     ],
-                  ),
-                ),
-              ),
-              mediumGap(),
+                  )),
               Row(
                 children: const [
                   Text(

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:nkgroup/src/core/core.dart';
 
-import '../pages/donation.page.dart';
+import '../router/router.dart';
 // import 'package:nkgroup/src/router/router.dart';
 
 class MyApp extends StatelessWidget {
@@ -11,11 +11,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    // final appRouter = AppRouter();
-    return MaterialApp(
+    final appRouter = AppRouter();
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      // routerDelegate: appRouter.delegate(),
-      // routeInformationParser: appRouter.defaultRouteParser(),
+      routerDelegate: appRouter.delegate(),
+      routeInformationParser: appRouter.defaultRouteParser(),
       title: AppConfig.appName,
       theme: ThemeData(
           fontFamily: 'Roboto',
@@ -24,7 +24,6 @@ class MyApp extends StatelessWidget {
             fillColor: MaterialStateColor.resolveWith(
                 (states) => Colors.white), //<-- SEE HERE
           )),
-      home: const DonationPage(),
     );
   }
 }

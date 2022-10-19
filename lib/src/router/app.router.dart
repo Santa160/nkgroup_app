@@ -9,9 +9,8 @@ import 'package:nkgroup/src/pages/pages.dart';
     AutoRoute(page: AddMemberPage),
     AutoRoute(page: VerifyOtpPage),
     AutoRoute(page: HelpPage),
-    AutoRoute(
-      page: DonationPage,
-    ),
+    AutoRoute(page: ReceiverDetailsWaitingPage),
+    AutoRoute(page: DonationPage),
     AutoRoute(page: SignUpFormPage),
   ],
 )
