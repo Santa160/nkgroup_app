@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:nkgroup/src/core/app.config.dart';
 import 'package:nkgroup/src/core/assets.dart';
 import 'package:nkgroup/src/core/gaps.dart';
 import 'package:nkgroup/src/core/reuseable/bg.dart';
+import 'package:nkgroup/src/core/reuseable/resuable.dart';
 import 'package:nkgroup/src/fake%20data/fake_data.dart';
 
 class HomePage extends StatefulWidget {
@@ -19,44 +19,7 @@ class _HomePageState extends State<HomePage> {
     return BackgroundWrapper(
         child: Scaffold(
       key: _key,
-      drawer: Drawer(
-        // Add a ListView to the drawer. This ensures the user can scroll
-        // through the options in the drawer if there isn't enough vertical
-        // space to fit everything.
-        child: BackgroundWrapper(
-          child: SafeArea(
-            child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      AppConfig.appName,
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 32,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    mediumGap(),
-                    ...FakeData.drawerlist
-                        .map((e) => ListTile(
-                              contentPadding: EdgeInsets.zero,
-                              title: Text(
-                                e["title"],
-                                style: const TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              leading: e["icon"],
-                            ))
-                        .toList()
-                  ],
-                )),
-          ),
-        ),
-      ),
+      drawer: myDrawer(),
       backgroundColor: Colors.transparent,
       body: SafeArea(
         child: Padding(
@@ -70,7 +33,14 @@ class _HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      shareWidget(),
+                      InkWell(
+                          onTap: () => showModalBottomSheet(
+                                context: context,
+                                builder: (context) {
+                                  return buttomSheet();
+                                },
+                              ),
+                          child: shareWidget()),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -118,6 +88,101 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     ));
+  }
+
+  BackgroundWrapper buttomSheet() {
+    return BackgroundWrapper(
+      child: Padding(
+        padding: const EdgeInsets.all(20),
+        child: SizedBox(
+          height: 200,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                "Share",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                ),
+              ),
+              smallGap(),
+              SizedBox(
+                height: 50,
+                width: MediaQuery.of(context).size.width,
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: RadioListTile(
+                        title: const Text(
+                          "Add to left",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        value: true,
+                        groupValue: true,
+                        onChanged: (value) {},
+                      ),
+                    ),
+                    Expanded(
+                      child: RadioListTile(
+                        title: const Text(
+                          "Add to Right",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        value: "",
+                        groupValue: null,
+                        onChanged: (value) {},
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              mediumGap(),
+              Row(
+                children: [
+                  SizedBox(
+                    height: 50,
+                    width: 50,
+                    child: ClipRRect(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(10)),
+                        child: Image.asset(Assets.image.watsap)),
+                  ),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  SizedBox(
+                    height: 50,
+                    width: 50,
+                    child: ClipRRect(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(10)),
+                        child: Image.asset(Assets.image.copyLink)),
+                  ),
+                ],
+              ),
+              // Row(
+              //   children: [
+              //     RadioListTile(
+              //       title: const Text("Male"),
+              //       value: "male",
+              //       groupValue: null,
+              //       onChanged: (value) {},
+              //     ),
+              //     RadioListTile(
+              //       title: const Text("Female"),
+              //       value: "female",
+              //       groupValue: null,
+              //       onChanged: (value) {},
+              //     ),
+              //   ],
+              // )
+            ],
+          ),
+        ),
+      ),
+    );
   }
 
   Expanded dashBoardCard(String title, String count) {

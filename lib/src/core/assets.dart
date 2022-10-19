@@ -8,4 +8,6 @@ class Images {
   const Images();
 
   final img = 'assets/img.png';
+  final watsap = 'assets/whatsapp.png';
+  final copyLink = 'assets/copylink.jpg';
 }

@@ -79,8 +79,10 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
                 mediumGap(),
-                kSubmitButton(context,
-                    () => context.router.push(const SignUpFormRoute())),
+                kSubmitButton(
+                    context,
+                    () => context.router.push(const SignUpFormRoute()),
+                    'Submit'),
                 mediumGap(),
                 const Center(
                   child: Text(

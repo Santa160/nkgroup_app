@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:nkgroup/src/core/core.dart';
-import 'package:nkgroup/src/pages/pages.dart';
+import 'package:nkgroup/src/pages/home.dart';
 // import 'package:nkgroup/src/router/router.dart';
 
 class MyApp extends StatelessWidget {
@@ -17,8 +17,13 @@ class MyApp extends StatelessWidget {
       // routeInformationParser: appRouter.defaultRouteParser(),
       title: AppConfig.appName,
       theme: ThemeData(
-        fontFamily: 'Roboto',
-      ),
+          fontFamily: 'Roboto',
+          unselectedWidgetColor: Colors.grey,
+          radioTheme: RadioThemeData(
+            fillColor: MaterialStateColor.resolveWith(
+                (states) => Colors.white), //<-- SEE HERE
+          )),
+
       home: const HomePage(),
     );
   }

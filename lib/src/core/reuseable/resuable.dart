@@ -1,7 +1,11 @@
+import 'dart:developer';
+
 import 'package:country_calling_code_picker/country.dart';
 import 'package:country_calling_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:nkgroup/src/core/core.dart';
+import 'package:nkgroup/src/core/reuseable/bg.dart';
+import 'package:nkgroup/src/fake%20data/fake_data.dart';
 
 Column appWelcome() {
   return Column(
@@ -129,7 +133,8 @@ Container kTextField(String hint) {
   );
 }
 
-SizedBox kSubmitButton(BuildContext context, VoidCallback onpress) {
+SizedBox kSubmitButton(
+    BuildContext context, VoidCallback onpress, String title) {
   return SizedBox(
       height: 50,
       width: MediaQuery.of(context).size.width,
@@ -137,5 +142,84 @@ SizedBox kSubmitButton(BuildContext context, VoidCallback onpress) {
           style:
               ButtonStyle(backgroundColor: MaterialStateProperty.all(dcolor)),
           onPressed: onpress,
-          child: const Text("Submit")));
+          child: Text(title)));
+}
+
+AppBar appBar(String title) {
+  return AppBar(
+    leading: const Icon(
+      Icons.arrow_back_ios_new,
+      size: 12,
+    ),
+    elevation: 0,
+    backgroundColor: Colors.transparent,
+    toolbarHeight: 100,
+    title: Text(title),
+  );
+}
+
+Drawer myDrawer() {
+  return Drawer(
+    child: BackgroundWrapper(
+      child: SafeArea(
+        child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  AppConfig.appName,
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold),
+                ),
+                mediumGap(),
+                ...FakeData.drawerlist.map((e) {
+                  return IgnorePointer(
+                    ignoring: !e['dropdonw'],
+                    child: ExpansionTile(
+                      expandedCrossAxisAlignment: CrossAxisAlignment.start,
+                      iconColor: Colors.white,
+                      collapsedIconColor: Colors.white,
+                      leading: e["icon"],
+                      title: Text(
+                        e['title'],
+                        style: const TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                      trailing: !e['dropdonw']
+                          ? const SizedBox()
+                          : const Icon(Icons.arrow_drop_down),
+                      children: [
+                        InkWell(
+                          onTap: () => log("Pressed"),
+                          child: const Padding(
+                            padding: EdgeInsets.all(15),
+                            child: Text(
+                              "Help Given",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        ),
+                        InkWell(
+                          onTap: () => log("Pressed"),
+                          child: const Padding(
+                            padding: EdgeInsets.all(15),
+                            child: Text(
+                              "Help Received",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                }).toList()
+              ],
+            )),
+      ),
+    ),
+  );
 }
