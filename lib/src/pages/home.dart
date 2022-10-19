@@ -17,42 +17,43 @@ class HomePage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
-                  flex: 2,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                flex: 2,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        shareWidget(),
+                        IconButton(
+                            onPressed: () {},
+                            icon: const Icon(
+                              Icons.menu,
+                              color: Colors.white,
+                            ))
+                      ],
+                    ),
+                    RichText(
+                      text: TextSpan(
                         children: [
-                          shareWidget(),
-                          IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons.menu,
-                                color: Colors.white,
-                              ))
+                          const TextSpan(
+                            text: "Hello",
+                          ),
+                          const TextSpan(
+                            text: "\n",
+                          ),
+                          TextSpan(
+                              text: "UserName".toUpperCase(),
+                              style: const TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.bold)),
                         ],
                       ),
-                      RichText(
-                        text: TextSpan(
-                          children: [
-                            const TextSpan(
-                              text: "Hello",
-                            ),
-                            const TextSpan(
-                              text: "\n",
-                            ),
-                            TextSpan(
-                                text: "UserName".toUpperCase(),
-                                style: const TextStyle(
-                                    fontSize: 20, fontWeight: FontWeight.bold)),
-                          ],
-                        ),
-                      ),
-                      smallGap(),
-                    ],
-                  )),
+                    ),
+                    smallGap(),
+                  ],
+                ),
+              ),
               Expanded(
                   flex: 8,
                   child: Column(
