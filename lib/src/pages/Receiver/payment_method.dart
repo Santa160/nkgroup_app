@@ -12,6 +12,7 @@ class PaymentMethodPage extends StatelessWidget {
     const double size25 = 25;
     const colors = Colors.white;
     const double size20 = 20;
+    const double size12 = 12;
     // ========================================
 
     return BackgroundWrapper(
@@ -24,7 +25,7 @@ class PaymentMethodPage extends StatelessWidget {
           ),
           leading: const Icon(
             Icons.arrow_back_ios,
-            size: 12,
+            size: size12,
           ),
           backgroundColor: Colors.transparent,
           elevation: 0,
@@ -47,9 +48,10 @@ class PaymentMethodPage extends StatelessWidget {
                   Text(
                     'You have not yet updated',
                     style: TextStyle(
-                        fontSize: size25,
-                        color: colors,
-                        fontWeight: FontWeight.w800),
+                      fontSize: size25,
+                      color: colors,
+                      fontWeight: FontWeight.w800,
+                    ),
                   )
                 ],
               ),
