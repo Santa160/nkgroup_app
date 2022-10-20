@@ -82,10 +82,15 @@ class _LoginPageState extends State<LoginPage> {
                 kSubmitButton(context,
                     () => context.router.push(const HomeRoute()), 'Submit'),
                 mediumGap(),
-                const Center(
-                  child: Text(
-                    "Not a member? Join Now",
-                    style: TextStyle(color: Colors.white),
+                InkWell(
+                  onTap: () {
+                    context.router.push(const SignUpFormRoute());
+                  },
+                  child: const Center(
+                    child: Text(
+                      "Not a member? Join Now",
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
                 )
               ],

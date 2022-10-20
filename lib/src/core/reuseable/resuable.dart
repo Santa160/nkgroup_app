@@ -186,6 +186,9 @@ Drawer myDrawer(BuildContext context) {
                       if (e['title'] == 'Add New Member') {
                         context.router.push(const AddMemberRoute());
                       }
+                      if (e['title'] == 'Payment Method') {
+                        context.router.push(const PaymentMethodRoute());
+                      }
                     },
                     child: IgnorePointer(
                       ignoring: !e['dropdonw'],

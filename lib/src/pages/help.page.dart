@@ -1,7 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:nkgroup/src/core/core.dart';
 import 'package:nkgroup/src/core/reuseable/bg.dart';
 import 'package:nkgroup/src/fake%20data/fake_data.dart';
+import 'package:nkgroup/src/router/app.router.gr.dart';
 
 class HelpPage extends StatelessWidget {
   const HelpPage({super.key, required this.appBarTile});
@@ -20,12 +22,15 @@ class HelpPage extends StatelessWidget {
             itemCount: FakeData.helpGiven.length,
             itemBuilder: (context, index) {
               var data = FakeData.helpGiven;
-              return helpsCard(
-                  context: context,
-                  amount: data[index]['amount'],
-                  dateTime: data[index]['date_time'],
-                  senderName: data[index]['name'],
-                  status: data[index]['status']);
+              return InkWell(
+                onTap: () => context.router.push(const HelpGivenDetailsRoute()),
+                child: helpsCard(
+                    context: context,
+                    amount: data[index]['amount'],
+                    dateTime: data[index]['date_time'],
+                    senderName: data[index]['name'],
+                    status: data[index]['status']),
+              );
             },
           ),
         ),

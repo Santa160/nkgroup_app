@@ -72,6 +72,24 @@ class AppRouter extends _i2.RootStackRouter {
         child: const _i1.ReceiverDetailsPage(),
       );
     },
+    PaymentMethodRoute.name: (routeData) {
+      return _i2.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i1.PaymentMethodPage(),
+      );
+    },
+    AddPaymentMethodRoute.name: (routeData) {
+      return _i2.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i1.AddPaymentMethodPage(),
+      );
+    },
+    HelpGivenDetailsRoute.name: (routeData) {
+      return _i2.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i1.HelpGivenDetailsPage(),
+      );
+    },
     PaymentDetailsRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
         routeData: routeData,
@@ -127,6 +145,18 @@ class AppRouter extends _i2.RootStackRouter {
         _i2.RouteConfig(
           ReceiverDetailsRoute.name,
           path: '/receiver-details-page',
+        ),
+        _i2.RouteConfig(
+          PaymentMethodRoute.name,
+          path: '/payment-method-page',
+        ),
+        _i2.RouteConfig(
+          AddPaymentMethodRoute.name,
+          path: '/add-payment-method-page',
+        ),
+        _i2.RouteConfig(
+          HelpGivenDetailsRoute.name,
+          path: '/help-given-details-page',
         ),
         _i2.RouteConfig(
           PaymentDetailsRoute.name,
@@ -270,6 +300,42 @@ class ReceiverDetailsRoute extends _i2.PageRouteInfo<void> {
         );
 
   static const String name = 'ReceiverDetailsRoute';
+}
+
+/// generated route for
+/// [_i1.PaymentMethodPage]
+class PaymentMethodRoute extends _i2.PageRouteInfo<void> {
+  const PaymentMethodRoute()
+      : super(
+          PaymentMethodRoute.name,
+          path: '/payment-method-page',
+        );
+
+  static const String name = 'PaymentMethodRoute';
+}
+
+/// generated route for
+/// [_i1.AddPaymentMethodPage]
+class AddPaymentMethodRoute extends _i2.PageRouteInfo<void> {
+  const AddPaymentMethodRoute()
+      : super(
+          AddPaymentMethodRoute.name,
+          path: '/add-payment-method-page',
+        );
+
+  static const String name = 'AddPaymentMethodRoute';
+}
+
+/// generated route for
+/// [_i1.HelpGivenDetailsPage]
+class HelpGivenDetailsRoute extends _i2.PageRouteInfo<void> {
+  const HelpGivenDetailsRoute()
+      : super(
+          HelpGivenDetailsRoute.name,
+          path: '/help-given-details-page',
+        );
+
+  static const String name = 'HelpGivenDetailsRoute';
 }
 
 /// generated route for

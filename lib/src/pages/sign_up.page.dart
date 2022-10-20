@@ -68,11 +68,14 @@ class _SignUpFormPageState extends State<SignUpFormPage> {
                   kSubmitButton(context,
                       () => context.router.push(const HomeRoute()), 'Submit'),
                   mediumGap(),
-                  const Center(
-                      child: Text(
-                    "Already have an account? Check here ",
-                    style: TextStyle(color: Colors.white),
-                  ))
+                  InkWell(
+                    onTap: () => context.router.push(const LoginRoute()),
+                    child: const Center(
+                        child: Text(
+                      "Already have an account? Check here ",
+                      style: TextStyle(color: Colors.white),
+                    )),
+                  )
                 ],
               )),
         ),
