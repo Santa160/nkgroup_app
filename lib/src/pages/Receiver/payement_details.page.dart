@@ -1,5 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:nkgroup/src/core/reuseable/bg.dart';
+import 'package:nkgroup/src/router/router.dart';
 
 import '../../core/core.dart';
 
@@ -14,9 +16,12 @@ class PaymentDetailsPage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         appBar: AppBar(
           title: const Text('Payment Details'),
-          leading: const Icon(
-            Icons.arrow_back_ios,
-            size: 12,
+          leading: IconButton(
+            onPressed: () => context.router.pop(),
+            icon: const Icon(
+              Icons.arrow_back_ios,
+              size: 12,
+            ),
           ),
           toolbarHeight: 100,
           backgroundColor: Colors.transparent,
@@ -165,7 +170,11 @@ class PaymentDetailsPage extends StatelessWidget {
                   ],
                 ),
                 mediumGap(),
-                kSubmitButton(context, () {}, 'Submit'),
+                kSubmitButton(
+                    context,
+                    () => context.router
+                        .push(ReceiverDetailsWaitingRoute(isApproved: false)),
+                    'Submit'),
               ],
             ),
           ),

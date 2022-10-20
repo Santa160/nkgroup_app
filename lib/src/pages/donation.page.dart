@@ -43,7 +43,9 @@ class DonationPage extends StatelessWidget {
                     .push(ReceiverDetailsWaitingRoute(isApproved: false));
               }),
               smallGap(),
-              recieversCard2(() {})
+              recieversCard2(() {
+                context.router.push(const ReceiverDetailsRoute());
+              })
             ],
           ),
         ),

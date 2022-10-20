@@ -66,6 +66,18 @@ class AppRouter extends _i2.RootStackRouter {
         ),
       );
     },
+    ReceiverDetailsRoute.name: (routeData) {
+      return _i2.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i1.ReceiverDetailsPage(),
+      );
+    },
+    PaymentDetailsRoute.name: (routeData) {
+      return _i2.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i1.PaymentDetailsPage(),
+      );
+    },
     DonationRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
         routeData: routeData,
@@ -111,6 +123,14 @@ class AppRouter extends _i2.RootStackRouter {
         _i2.RouteConfig(
           ReceiverDetailsWaitingRoute.name,
           path: '/receiver-details-waiting-page',
+        ),
+        _i2.RouteConfig(
+          ReceiverDetailsRoute.name,
+          path: '/receiver-details-page',
+        ),
+        _i2.RouteConfig(
+          PaymentDetailsRoute.name,
+          path: '/payment-details-page',
         ),
         _i2.RouteConfig(
           DonationRoute.name,
@@ -238,6 +258,30 @@ class ReceiverDetailsWaitingRouteArgs {
   String toString() {
     return 'ReceiverDetailsWaitingRouteArgs{key: $key, isApproved: $isApproved}';
   }
+}
+
+/// generated route for
+/// [_i1.ReceiverDetailsPage]
+class ReceiverDetailsRoute extends _i2.PageRouteInfo<void> {
+  const ReceiverDetailsRoute()
+      : super(
+          ReceiverDetailsRoute.name,
+          path: '/receiver-details-page',
+        );
+
+  static const String name = 'ReceiverDetailsRoute';
+}
+
+/// generated route for
+/// [_i1.PaymentDetailsPage]
+class PaymentDetailsRoute extends _i2.PageRouteInfo<void> {
+  const PaymentDetailsRoute()
+      : super(
+          PaymentDetailsRoute.name,
+          path: '/payment-details-page',
+        );
+
+  static const String name = 'PaymentDetailsRoute';
 }
 
 /// generated route for

@@ -1,4 +1,6 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:nkgroup/src/router/router.dart';
 
 import '../../core/core.dart';
 import '../../core/reuseable/bg.dart';
@@ -168,7 +170,9 @@ class ReceiverDetailsPage extends StatelessWidget {
               ),
             ),
             mediumGap(),
-            uploadedButton(context, () {})
+            uploadedButton(context, () {
+              context.router.push(const PaymentDetailsRoute());
+            })
           ],
         ),
       ),

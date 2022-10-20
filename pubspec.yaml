@@ -39,8 +39,10 @@ dependencies:
   country_picker: ^2.0.16
   country_calling_code_picker: ^2.0.1
   auto_route: ^5.0.2
+  flutter_native_splash: ^2.2.11
 
 dev_dependencies:
+  flutter_launcher_icons: ^0.10.0
   flutter_test:
     sdk: flutter
 
@@ -57,6 +59,13 @@ dev_dependencies:
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter packages.
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/logo.png"
+
+
 flutter:
 
   # The following line ensures that the Material Icons font is
