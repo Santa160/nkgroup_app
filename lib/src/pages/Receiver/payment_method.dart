@@ -19,7 +19,6 @@ class PaymentMethodPage extends StatelessWidget {
 
     return BackgroundWrapper(
       child: Scaffold(
-        backgroundColor: Colors.transparent,
         appBar: AppBar(
           title: const Text(
             'Payment Method',

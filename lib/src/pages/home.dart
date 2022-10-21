@@ -20,7 +20,6 @@ class _HomePageState extends State<HomePage> {
         child: Scaffold(
       key: _key,
       drawer: myDrawer(context),
-      backgroundColor: Colors.transparent,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(30),

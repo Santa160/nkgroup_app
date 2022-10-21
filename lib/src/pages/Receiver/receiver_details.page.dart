@@ -23,7 +23,6 @@ class ReceiverDetailsPage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
-      backgroundColor: Colors.transparent,
       body: Padding(
         padding: globalPading(),
         child: Column(

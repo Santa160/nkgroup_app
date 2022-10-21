@@ -34,7 +34,6 @@ class _SignUpFormPageState extends State<SignUpFormPage> {
   Widget build(BuildContext context) {
     return BackgroundWrapper(
       child: Scaffold(
-        backgroundColor: Colors.transparent,
         resizeToAvoidBottomInset: false,
         body: Container(
           padding: const EdgeInsets.all(30),

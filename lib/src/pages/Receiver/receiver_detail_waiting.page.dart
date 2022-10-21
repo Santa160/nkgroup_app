@@ -13,7 +13,6 @@ class ReceiverDetailsWaitingPage extends StatelessWidget {
     const styleColor = TextStyle(color: Colors.white);
     return BackgroundWrapper(
       child: Scaffold(
-        backgroundColor: Colors.transparent,
         appBar: AppBar(
           title: const Text('Receiver Details'),
           leading: IconButton(

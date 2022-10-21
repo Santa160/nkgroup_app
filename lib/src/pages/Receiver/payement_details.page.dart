@@ -13,7 +13,6 @@ class PaymentDetailsPage extends StatelessWidget {
     const colorStyle = Colors.white;
     return BackgroundWrapper(
       child: Scaffold(
-        backgroundColor: Colors.transparent,
         appBar: AppBar(
           title: const Text('Payment Details'),
           leading: IconButton(

@@ -21,7 +21,6 @@ class HelpGivenDetailsPage extends StatelessWidget {
     // ========================================
     return BackgroundWrapper(
       child: Scaffold(
-        backgroundColor: Colors.transparent,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           title: const Text(

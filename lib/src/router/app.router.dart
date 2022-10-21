@@ -10,6 +10,8 @@ import 'package:nkgroup/src/pages/pages.dart';
     AutoRoute(page: VerifyOtpPage),
     AutoRoute(page: HelpPage),
     AutoRoute(page: ReceiverDetailsWaitingPage),
+    AutoRoute(page: ProfilePage),
+    AutoRoute(page: ChangePasswordPage),
     AutoRoute(page: ReceiverDetailsPage),
     AutoRoute(page: PaymentMethodPage),
     AutoRoute(page: AddPaymentMethodPage),

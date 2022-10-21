@@ -20,10 +20,7 @@ Column appWelcome() {
       const Text(
         AppConfig.appName,
         style: TextStyle(
-            fontFamily: 'Roboto',
-            color: Colors.white,
-            fontSize: 30,
-            fontWeight: FontWeight.bold),
+            color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),
       ),
     ],
   );
@@ -63,11 +60,10 @@ kMobileField(BuildContext context, Country? selectedCountry) {
               Flexible(
                 child: TextFormField(
                   keyboardType: TextInputType.phone,
-                  // textAlignVertical: TextAlignVertical.center,
+                  maxLength: 10,
                   decoration: const InputDecoration(
-                    hintStyle: TextStyle(color: Colors.white),
-                    border: InputBorder.none,
                     hintText: 'Enter mobile number',
+                    counter: Offstage(),
                   ),
                 ),
               ),
@@ -96,12 +92,9 @@ Container kPasswordField(String hint) {
           keyboardType: TextInputType.phone,
           // textAlignVertical: TextAlignVertical.center,
           decoration: InputDecoration(
-            hintStyle: const TextStyle(color: Colors.white),
             suffixIcon: const Icon(
               Icons.remove_red_eye,
-              color: Colors.white,
             ),
-            border: InputBorder.none,
             hintText: hint,
           ),
         ),
@@ -122,11 +115,8 @@ Container kTextField(String hint) {
       padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Center(
         child: TextFormField(
+          decoration: InputDecoration(hintText: hint),
           // textAlignVertical: TextAlignVertical.center,
-          decoration: InputDecoration(
-              border: InputBorder.none,
-              hintText: hint,
-              hintStyle: const TextStyle(color: Colors.white)),
         ),
       ),
     ),
@@ -138,11 +128,7 @@ SizedBox kSubmitButton(
   return SizedBox(
       height: 50,
       width: MediaQuery.of(context).size.width,
-      child: ElevatedButton(
-          style:
-              ButtonStyle(backgroundColor: MaterialStateProperty.all(dcolor)),
-          onPressed: onpress,
-          child: Text(title)));
+      child: ElevatedButton(onPressed: onpress, child: Text(title)));
 }
 
 AppBar appBar(BuildContext context, String title) {
@@ -189,13 +175,17 @@ Drawer myDrawer(BuildContext context) {
                       if (e['title'] == 'Payment Method') {
                         context.router.push(const PaymentMethodRoute());
                       }
+                      if (e['title'] == 'My Profile') {
+                        context.router.push(const ProfileRoute());
+                      }
+                      if (e['title'] == 'Change Password') {
+                        context.router.push(const ChangePasswordRoute());
+                      }
                     },
                     child: IgnorePointer(
                       ignoring: !e['dropdonw'],
                       child: ExpansionTile(
                         expandedCrossAxisAlignment: CrossAxisAlignment.start,
-                        iconColor: Colors.white,
-                        collapsedIconColor: Colors.white,
                         leading: e["icon"],
                         title: Text(
                           e['title'],

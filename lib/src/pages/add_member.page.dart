@@ -35,7 +35,6 @@ class _AddMemberPageState extends State<AddMemberPage> {
     return BackgroundWrapper(
       child: Scaffold(
         appBar: appBar(context, 'Add Member'),
-        backgroundColor: Colors.transparent,
         resizeToAvoidBottomInset: false,
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),

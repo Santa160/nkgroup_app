@@ -14,7 +14,6 @@ class HelpPage extends StatelessWidget {
     return BackgroundWrapper(
       child: Scaffold(
         appBar: appBar(context, appBarTile),
-        backgroundColor: Colors.transparent,
         body: Padding(
           padding: globalPading(),
           child: ListView.separated(

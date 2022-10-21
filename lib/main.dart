@@ -8,5 +8,5 @@ void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent, // transparent status bar
   ));
-  runApp(const MyApp());
+  runApp(MyApp());
 }

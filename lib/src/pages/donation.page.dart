@@ -12,7 +12,6 @@ class DonationPage extends StatelessWidget {
     return BackgroundWrapper(
       child: Scaffold(
         appBar: appBar(context, 'Reciever\'s Details '),
-        backgroundColor: Colors.transparent,
         body: Padding(
           padding: globalPading(),
           child: Column(

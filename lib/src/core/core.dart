@@ -3,3 +3,4 @@ export 'decoration.dart';
 export 'colors.dart';
 export 'gaps.dart';
 export './reuseable/resuable.dart';
+export 'theme.dart';

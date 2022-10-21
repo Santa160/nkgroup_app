@@ -11,7 +11,6 @@ class VerifyOtpPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BackgroundWrapper(
       child: Scaffold(
-        backgroundColor: Colors.transparent,
         appBar: appBar(context, "Verify Phone"),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),

@@ -66,6 +66,18 @@ class AppRouter extends _i2.RootStackRouter {
         ),
       );
     },
+    ProfileRoute.name: (routeData) {
+      return _i2.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i1.ProfilePage(),
+      );
+    },
+    ChangePasswordRoute.name: (routeData) {
+      return _i2.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i1.ChangePasswordPage(),
+      );
+    },
     ReceiverDetailsRoute.name: (routeData) {
       return _i2.MaterialPageX<dynamic>(
         routeData: routeData,
@@ -141,6 +153,14 @@ class AppRouter extends _i2.RootStackRouter {
         _i2.RouteConfig(
           ReceiverDetailsWaitingRoute.name,
           path: '/receiver-details-waiting-page',
+        ),
+        _i2.RouteConfig(
+          ProfileRoute.name,
+          path: '/profile-page',
+        ),
+        _i2.RouteConfig(
+          ChangePasswordRoute.name,
+          path: '/change-password-page',
         ),
         _i2.RouteConfig(
           ReceiverDetailsRoute.name,
@@ -288,6 +308,30 @@ class ReceiverDetailsWaitingRouteArgs {
   String toString() {
     return 'ReceiverDetailsWaitingRouteArgs{key: $key, isApproved: $isApproved}';
   }
+}
+
+/// generated route for
+/// [_i1.ProfilePage]
+class ProfileRoute extends _i2.PageRouteInfo<void> {
+  const ProfileRoute()
+      : super(
+          ProfileRoute.name,
+          path: '/profile-page',
+        );
+
+  static const String name = 'ProfileRoute';
+}
+
+/// generated route for
+/// [_i1.ChangePasswordPage]
+class ChangePasswordRoute extends _i2.PageRouteInfo<void> {
+  const ChangePasswordRoute()
+      : super(
+          ChangePasswordRoute.name,
+          path: '/change-password-page',
+        );
+
+  static const String name = 'ChangePasswordRoute';
 }
 
 /// generated route for

@@ -11,3 +11,5 @@ export './Receiver/receiver_details.page.dart';
 export 'donation.page.dart';
 export './Receiver/add_payment_method.page.dart';
 export './Receiver/help_given_details.page.dart';
+export 'profile.page.dart';
+export 'change_password.dart';
