@@ -33,7 +33,7 @@ class PaymentMethodPage extends StatelessWidget {
           toolbarHeight: 100,
         ),
         body: Padding(
-          padding: globalPading(),
+          padding: globalPading(context),
           child: Column(
             children: [
               Row(

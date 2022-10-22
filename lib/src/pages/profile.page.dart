@@ -15,7 +15,7 @@ class ProfilePage extends StatelessWidget {
         child: Scaffold(
             appBar: appBar(context, "Profile"),
             body: Padding(
-              padding: globalPading(),
+              padding: globalPading(context),
               child: Column(
                 children: [
                   SizedBox(

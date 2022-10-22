@@ -13,7 +13,7 @@ class ChangePasswordPage extends StatelessWidget {
         child: Scaffold(
             appBar: appBar(context, 'Change Password'),
             body: Padding(
-              padding: globalPading(),
+              padding: globalPading(context),
               child: Column(
                 children: [
                   kTextField('Current password'),

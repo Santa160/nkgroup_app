@@ -13,7 +13,7 @@ class DonationPage extends StatelessWidget {
       child: Scaffold(
         appBar: appBar(context, 'Reciever\'s Details '),
         body: Padding(
-          padding: globalPading(),
+          padding: globalPading(context),
           child: Column(
             children: [
               const Text(

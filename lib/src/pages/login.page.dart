@@ -29,6 +29,16 @@ class _LoginPageState extends State<LoginPage> {
     });
   }
 
+  static bool isMobile(BuildContext context) =>
+      MediaQuery.of(context).size.width < 650;
+
+  // static bool istablet(BuildContext context) =>
+  //     MediaQuery.of(context).size.width < 1100 &&
+  //     MediaQuery.of(context).size.width >= 650;
+
+  // static bool isdesktop(BuildContext context) =>
+  //     MediaQuery.of(context).size.width >= 1100;
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -37,63 +47,70 @@ class _LoginPageState extends State<LoginPage> {
         child: Scaffold(
           backgroundColor: Colors.transparent,
           body: Padding(
-            padding: globalPading(),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                appWelcome(),
-                mediumGap(),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width / 2,
-                  child: TabBar(
-                    indicator: BoxDecoration(
-                        color: dcolor, borderRadius: BorderRadius.circular(8)),
-                    tabs: const [
-                      SizedBox(
-                          height: 31, child: Center(child: Text('Mobile'))),
-                      SizedBox(height: 31, child: Center(child: Text('Email'))),
-                    ],
-                  ),
-                ),
-                smallGap(),
-                SizedBox(
-                  height: 50,
-                  child: TabBarView(
-                      physics: const NeverScrollableScrollPhysics(),
-                      children: [
-                        kMobileField(context, _selectedCountry),
-                        kTextField("Email")
-                      ]),
-                ),
-                smallGap(),
-                kPasswordField("password"),
-                mediumGap(),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: const [
-                    Text(
-                      "Forget password",
-                      style: TextStyle(color: Colors.white),
+            padding: globalPading(context),
+            child: Center(
+              child: SizedBox(
+                width: isMobile(context) ? double.infinity : 400,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    appWelcome(),
+                    mediumGap(),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / 2,
+                      child: TabBar(
+                        indicator: BoxDecoration(
+                            color: dcolor,
+                            borderRadius: BorderRadius.circular(8)),
+                        tabs: const [
+                          SizedBox(
+                              height: 31, child: Center(child: Text('Mobile'))),
+                          SizedBox(
+                              height: 31, child: Center(child: Text('Email'))),
+                        ],
+                      ),
+                    ),
+                    smallGap(),
+                    SizedBox(
+                      height: 50,
+                      child: TabBarView(
+                          physics: const NeverScrollableScrollPhysics(),
+                          children: [
+                            kMobileField(context, _selectedCountry),
+                            kTextField("Email")
+                          ]),
+                    ),
+                    smallGap(),
+                    kPasswordField("password"),
+                    mediumGap(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: const [
+                        Text(
+                          "Forget password",
+                          style: TextStyle(color: Colors.white),
+                        )
+                      ],
+                    ),
+                    mediumGap(),
+                    kSubmitButton(context,
+                        () => context.router.push(const HomeRoute()), 'Submit'),
+                    mediumGap(),
+                    InkWell(
+                      onTap: () {
+                        context.router.push(const SignUpFormRoute());
+                      },
+                      child: const Center(
+                        child: Text(
+                          "Not a member? Join Now",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
                     )
                   ],
                 ),
-                mediumGap(),
-                kSubmitButton(context,
-                    () => context.router.push(const HomeRoute()), 'Submit'),
-                mediumGap(),
-                InkWell(
-                  onTap: () {
-                    context.router.push(const SignUpFormRoute());
-                  },
-                  child: const Center(
-                    child: Text(
-                      "Not a member? Join Now",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                )
-              ],
+              ),
             ),
           ),
         ),

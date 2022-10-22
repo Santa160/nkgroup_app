@@ -68,7 +68,10 @@ class _SignUpFormPageState extends State<SignUpFormPage> {
                       () => context.router.push(const HomeRoute()), 'Submit'),
                   mediumGap(),
                   InkWell(
-                    onTap: () => context.router.push(const LoginRoute()),
+                    onTap: () {
+                      //TODO if not routing from signup to login
+                      // context.router.push(const LoginRoute());
+                    },
                     child: const Center(
                         child: Text(
                       "Already have an account? Check here ",

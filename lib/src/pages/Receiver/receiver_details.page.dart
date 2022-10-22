@@ -24,7 +24,7 @@ class ReceiverDetailsPage extends StatelessWidget {
         elevation: 0,
       ),
       body: Padding(
-        padding: globalPading(),
+        padding: globalPading(context),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

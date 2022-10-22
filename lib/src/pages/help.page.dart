@@ -15,7 +15,7 @@ class HelpPage extends StatelessWidget {
       child: Scaffold(
         appBar: appBar(context, appBarTile),
         body: Padding(
-          padding: globalPading(),
+          padding: globalPading(context),
           child: ListView.separated(
             separatorBuilder: (context, index) => smallGap(),
             itemCount: FakeData.helpGiven.length,
