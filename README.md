@@ -18,3 +18,6 @@ connect adb cmd:
 adb tcpip 5555
 
 adb connect 192.168.29.93:5555
+
+move index file:
+sudo cp -r web/ /opt/lampp/htdocs/

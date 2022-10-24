@@ -16,9 +16,12 @@ class ReceiverDetailsPage extends StatelessWidget {
         child: Scaffold(
       appBar: AppBar(
         title: const Text('Receiver Details'),
-        leading: const Icon(
-          Icons.arrow_back_ios,
-          size: 12,
+        leading: IconButton(
+          onPressed: () => context.router.pop(),
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            size: 12,
+          ),
         ),
         backgroundColor: Colors.transparent,
         elevation: 0,

@@ -29,16 +29,6 @@ class _LoginPageState extends State<LoginPage> {
     });
   }
 
-  static bool isMobile(BuildContext context) =>
-      MediaQuery.of(context).size.width < 650;
-
-  // static bool istablet(BuildContext context) =>
-  //     MediaQuery.of(context).size.width < 1100 &&
-  //     MediaQuery.of(context).size.width >= 650;
-
-  // static bool isdesktop(BuildContext context) =>
-  //     MediaQuery.of(context).size.width >= 1100;
-
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -50,7 +40,7 @@ class _LoginPageState extends State<LoginPage> {
             padding: globalPading(context),
             child: Center(
               child: SizedBox(
-                width: isMobile(context) ? double.infinity : 400,
+                width: double.infinity,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,

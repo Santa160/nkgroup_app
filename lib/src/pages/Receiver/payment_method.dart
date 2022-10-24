@@ -24,9 +24,12 @@ class PaymentMethodPage extends StatelessWidget {
             'Payment Method',
             style: TextStyle(fontSize: size20, fontWeight: FontWeight.w800),
           ),
-          leading: const Icon(
-            Icons.arrow_back_ios,
-            size: size12,
+          leading: IconButton(
+            onPressed: () => context.router.pop(),
+            icon: const Icon(
+              Icons.arrow_back_ios,
+              size: size12,
+            ),
           ),
           backgroundColor: Colors.transparent,
           elevation: 0,

@@ -11,46 +11,53 @@
 // ignore_for_file: type=lint
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i2;
-import 'package:flutter/material.dart' as _i3;
+import 'package:auto_route/auto_route.dart' as _i3;
+import 'package:flutter/material.dart' as _i4;
 
-import '../pages/pages.dart' as _i1;
+import '../extra/testing.page.dart' as _i1;
+import '../pages/pages.dart' as _i2;
 
-class AppRouter extends _i2.RootStackRouter {
-  AppRouter([_i3.GlobalKey<_i3.NavigatorState>? navigatorKey])
+class AppRouter extends _i3.RootStackRouter {
+  AppRouter([_i4.GlobalKey<_i4.NavigatorState>? navigatorKey])
       : super(navigatorKey);
 
   @override
-  final Map<String, _i2.PageFactory> pagesMap = {
-    LoginRoute.name: (routeData) {
-      return _i2.MaterialPageX<dynamic>(
+  final Map<String, _i3.PageFactory> pagesMap = {
+    TestingRoute.name: (routeData) {
+      return _i3.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i1.LoginPage(),
+        child: const _i1.TestingPage(),
+      );
+    },
+    LoginRoute.name: (routeData) {
+      return _i3.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i2.LoginPage(),
       );
     },
     HomeRoute.name: (routeData) {
-      return _i2.MaterialPageX<dynamic>(
+      return _i3.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i1.HomePage(),
+        child: const _i2.HomePage(),
       );
     },
     AddMemberRoute.name: (routeData) {
-      return _i2.MaterialPageX<dynamic>(
+      return _i3.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i1.AddMemberPage(),
+        child: const _i2.AddMemberPage(),
       );
     },
     VerifyOtpRoute.name: (routeData) {
-      return _i2.MaterialPageX<dynamic>(
+      return _i3.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i1.VerifyOtpPage(),
+        child: const _i2.VerifyOtpPage(),
       );
     },
     HelpRoute.name: (routeData) {
       final args = routeData.argsAs<HelpRouteArgs>();
-      return _i2.MaterialPageX<dynamic>(
+      return _i3.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: _i1.HelpPage(
+        child: _i2.HelpPage(
           key: args.key,
           appBarTile: args.appBarTile,
         ),
@@ -58,198 +65,208 @@ class AppRouter extends _i2.RootStackRouter {
     },
     ReceiverDetailsWaitingRoute.name: (routeData) {
       final args = routeData.argsAs<ReceiverDetailsWaitingRouteArgs>();
-      return _i2.MaterialPageX<dynamic>(
+      return _i3.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: _i1.ReceiverDetailsWaitingPage(
+        child: _i2.ReceiverDetailsWaitingPage(
           key: args.key,
           isApproved: args.isApproved,
         ),
       );
     },
     ProfileRoute.name: (routeData) {
-      return _i2.MaterialPageX<dynamic>(
+      return _i3.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i1.ProfilePage(),
+        child: const _i2.ProfilePage(),
       );
     },
     ChangePasswordRoute.name: (routeData) {
-      return _i2.MaterialPageX<dynamic>(
+      return _i3.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i1.ChangePasswordPage(),
+        child: const _i2.ChangePasswordPage(),
       );
     },
     ReceiverDetailsRoute.name: (routeData) {
-      return _i2.MaterialPageX<dynamic>(
+      return _i3.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i1.ReceiverDetailsPage(),
+        child: const _i2.ReceiverDetailsPage(),
       );
     },
     PaymentMethodRoute.name: (routeData) {
-      return _i2.MaterialPageX<dynamic>(
+      return _i3.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i1.PaymentMethodPage(),
+        child: const _i2.PaymentMethodPage(),
       );
     },
     AddPaymentMethodRoute.name: (routeData) {
-      return _i2.MaterialPageX<dynamic>(
+      return _i3.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i1.AddPaymentMethodPage(),
+        child: const _i2.AddPaymentMethodPage(),
       );
     },
     HelpGivenDetailsRoute.name: (routeData) {
-      return _i2.MaterialPageX<dynamic>(
+      return _i3.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i1.HelpGivenDetailsPage(),
+        child: const _i2.HelpGivenDetailsPage(),
       );
     },
     PaymentDetailsRoute.name: (routeData) {
-      return _i2.MaterialPageX<dynamic>(
+      return _i3.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i1.PaymentDetailsPage(),
+        child: const _i2.PaymentDetailsPage(),
       );
     },
     DonationRoute.name: (routeData) {
-      return _i2.MaterialPageX<dynamic>(
+      return _i3.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i1.DonationPage(),
+        child: const _i2.DonationPage(),
       );
     },
     SignUpFormRoute.name: (routeData) {
-      return _i2.MaterialPageX<dynamic>(
+      return _i3.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i1.SignUpFormPage(),
+        child: const _i2.SignUpFormPage(),
       );
     },
   };
 
   @override
-  List<_i2.RouteConfig> get routes => [
-        _i2.RouteConfig(
-          '/#redirect',
+  List<_i3.RouteConfig> get routes => [
+        _i3.RouteConfig(
+          TestingRoute.name,
           path: '/',
-          redirectTo: '',
-          fullMatch: true,
         ),
-        _i2.RouteConfig(
+        _i3.RouteConfig(
           LoginRoute.name,
-          path: '',
+          path: '/login-page',
         ),
-        _i2.RouteConfig(
+        _i3.RouteConfig(
           HomeRoute.name,
-          path: '/home-page',
+          path: 'home',
         ),
-        _i2.RouteConfig(
+        _i3.RouteConfig(
           AddMemberRoute.name,
-          path: '/add-member-page',
+          path: 'addmember',
         ),
-        _i2.RouteConfig(
+        _i3.RouteConfig(
           VerifyOtpRoute.name,
-          path: '/verify-otp-page',
+          path: 'verify',
         ),
-        _i2.RouteConfig(
+        _i3.RouteConfig(
           HelpRoute.name,
-          path: '/help-page',
+          path: 'help',
         ),
-        _i2.RouteConfig(
+        _i3.RouteConfig(
           ReceiverDetailsWaitingRoute.name,
-          path: '/receiver-details-waiting-page',
+          path: 'recieverdetailswaiting',
         ),
-        _i2.RouteConfig(
+        _i3.RouteConfig(
           ProfileRoute.name,
-          path: '/profile-page',
+          path: 'profile',
         ),
-        _i2.RouteConfig(
+        _i3.RouteConfig(
           ChangePasswordRoute.name,
-          path: '/change-password-page',
+          path: 'change',
         ),
-        _i2.RouteConfig(
+        _i3.RouteConfig(
           ReceiverDetailsRoute.name,
-          path: '/receiver-details-page',
+          path: 'recieverdeatil',
         ),
-        _i2.RouteConfig(
+        _i3.RouteConfig(
           PaymentMethodRoute.name,
-          path: '/payment-method-page',
+          path: 'paymethod',
         ),
-        _i2.RouteConfig(
+        _i3.RouteConfig(
           AddPaymentMethodRoute.name,
-          path: '/add-payment-method-page',
+          path: 'addpaymentmethod',
         ),
-        _i2.RouteConfig(
+        _i3.RouteConfig(
           HelpGivenDetailsRoute.name,
-          path: '/help-given-details-page',
+          path: 'helpgiven',
         ),
-        _i2.RouteConfig(
+        _i3.RouteConfig(
           PaymentDetailsRoute.name,
-          path: '/payment-details-page',
+          path: 'paymentdetails',
         ),
-        _i2.RouteConfig(
+        _i3.RouteConfig(
           DonationRoute.name,
-          path: '/donation-page',
+          path: 'donation',
         ),
-        _i2.RouteConfig(
+        _i3.RouteConfig(
           SignUpFormRoute.name,
-          path: '/sign-up-form-page',
+          path: 'signup',
         ),
       ];
 }
 
 /// generated route for
-/// [_i1.LoginPage]
-class LoginRoute extends _i2.PageRouteInfo<void> {
+/// [_i1.TestingPage]
+class TestingRoute extends _i3.PageRouteInfo<void> {
+  const TestingRoute()
+      : super(
+          TestingRoute.name,
+          path: '/',
+        );
+
+  static const String name = 'TestingRoute';
+}
+
+/// generated route for
+/// [_i2.LoginPage]
+class LoginRoute extends _i3.PageRouteInfo<void> {
   const LoginRoute()
       : super(
           LoginRoute.name,
-          path: '',
+          path: '/login-page',
         );
 
   static const String name = 'LoginRoute';
 }
 
 /// generated route for
-/// [_i1.HomePage]
-class HomeRoute extends _i2.PageRouteInfo<void> {
+/// [_i2.HomePage]
+class HomeRoute extends _i3.PageRouteInfo<void> {
   const HomeRoute()
       : super(
           HomeRoute.name,
-          path: '/home-page',
+          path: 'home',
         );
 
   static const String name = 'HomeRoute';
 }
 
 /// generated route for
-/// [_i1.AddMemberPage]
-class AddMemberRoute extends _i2.PageRouteInfo<void> {
+/// [_i2.AddMemberPage]
+class AddMemberRoute extends _i3.PageRouteInfo<void> {
   const AddMemberRoute()
       : super(
           AddMemberRoute.name,
-          path: '/add-member-page',
+          path: 'addmember',
         );
 
   static const String name = 'AddMemberRoute';
 }
 
 /// generated route for
-/// [_i1.VerifyOtpPage]
-class VerifyOtpRoute extends _i2.PageRouteInfo<void> {
+/// [_i2.VerifyOtpPage]
+class VerifyOtpRoute extends _i3.PageRouteInfo<void> {
   const VerifyOtpRoute()
       : super(
           VerifyOtpRoute.name,
-          path: '/verify-otp-page',
+          path: 'verify',
         );
 
   static const String name = 'VerifyOtpRoute';
 }
 
 /// generated route for
-/// [_i1.HelpPage]
-class HelpRoute extends _i2.PageRouteInfo<HelpRouteArgs> {
+/// [_i2.HelpPage]
+class HelpRoute extends _i3.PageRouteInfo<HelpRouteArgs> {
   HelpRoute({
-    _i3.Key? key,
+    _i4.Key? key,
     required String appBarTile,
   }) : super(
           HelpRoute.name,
-          path: '/help-page',
+          path: 'help',
           args: HelpRouteArgs(
             key: key,
             appBarTile: appBarTile,
@@ -265,7 +282,7 @@ class HelpRouteArgs {
     required this.appBarTile,
   });
 
-  final _i3.Key? key;
+  final _i4.Key? key;
 
   final String appBarTile;
 
@@ -276,15 +293,15 @@ class HelpRouteArgs {
 }
 
 /// generated route for
-/// [_i1.ReceiverDetailsWaitingPage]
+/// [_i2.ReceiverDetailsWaitingPage]
 class ReceiverDetailsWaitingRoute
-    extends _i2.PageRouteInfo<ReceiverDetailsWaitingRouteArgs> {
+    extends _i3.PageRouteInfo<ReceiverDetailsWaitingRouteArgs> {
   ReceiverDetailsWaitingRoute({
-    _i3.Key? key,
+    _i4.Key? key,
     required bool isApproved,
   }) : super(
           ReceiverDetailsWaitingRoute.name,
-          path: '/receiver-details-waiting-page',
+          path: 'recieverdetailswaiting',
           args: ReceiverDetailsWaitingRouteArgs(
             key: key,
             isApproved: isApproved,
@@ -300,7 +317,7 @@ class ReceiverDetailsWaitingRouteArgs {
     required this.isApproved,
   });
 
-  final _i3.Key? key;
+  final _i4.Key? key;
 
   final bool isApproved;
 
@@ -311,108 +328,108 @@ class ReceiverDetailsWaitingRouteArgs {
 }
 
 /// generated route for
-/// [_i1.ProfilePage]
-class ProfileRoute extends _i2.PageRouteInfo<void> {
+/// [_i2.ProfilePage]
+class ProfileRoute extends _i3.PageRouteInfo<void> {
   const ProfileRoute()
       : super(
           ProfileRoute.name,
-          path: '/profile-page',
+          path: 'profile',
         );
 
   static const String name = 'ProfileRoute';
 }
 
 /// generated route for
-/// [_i1.ChangePasswordPage]
-class ChangePasswordRoute extends _i2.PageRouteInfo<void> {
+/// [_i2.ChangePasswordPage]
+class ChangePasswordRoute extends _i3.PageRouteInfo<void> {
   const ChangePasswordRoute()
       : super(
           ChangePasswordRoute.name,
-          path: '/change-password-page',
+          path: 'change',
         );
 
   static const String name = 'ChangePasswordRoute';
 }
 
 /// generated route for
-/// [_i1.ReceiverDetailsPage]
-class ReceiverDetailsRoute extends _i2.PageRouteInfo<void> {
+/// [_i2.ReceiverDetailsPage]
+class ReceiverDetailsRoute extends _i3.PageRouteInfo<void> {
   const ReceiverDetailsRoute()
       : super(
           ReceiverDetailsRoute.name,
-          path: '/receiver-details-page',
+          path: 'recieverdeatil',
         );
 
   static const String name = 'ReceiverDetailsRoute';
 }
 
 /// generated route for
-/// [_i1.PaymentMethodPage]
-class PaymentMethodRoute extends _i2.PageRouteInfo<void> {
+/// [_i2.PaymentMethodPage]
+class PaymentMethodRoute extends _i3.PageRouteInfo<void> {
   const PaymentMethodRoute()
       : super(
           PaymentMethodRoute.name,
-          path: '/payment-method-page',
+          path: 'paymethod',
         );
 
   static const String name = 'PaymentMethodRoute';
 }
 
 /// generated route for
-/// [_i1.AddPaymentMethodPage]
-class AddPaymentMethodRoute extends _i2.PageRouteInfo<void> {
+/// [_i2.AddPaymentMethodPage]
+class AddPaymentMethodRoute extends _i3.PageRouteInfo<void> {
   const AddPaymentMethodRoute()
       : super(
           AddPaymentMethodRoute.name,
-          path: '/add-payment-method-page',
+          path: 'addpaymentmethod',
         );
 
   static const String name = 'AddPaymentMethodRoute';
 }
 
 /// generated route for
-/// [_i1.HelpGivenDetailsPage]
-class HelpGivenDetailsRoute extends _i2.PageRouteInfo<void> {
+/// [_i2.HelpGivenDetailsPage]
+class HelpGivenDetailsRoute extends _i3.PageRouteInfo<void> {
   const HelpGivenDetailsRoute()
       : super(
           HelpGivenDetailsRoute.name,
-          path: '/help-given-details-page',
+          path: 'helpgiven',
         );
 
   static const String name = 'HelpGivenDetailsRoute';
 }
 
 /// generated route for
-/// [_i1.PaymentDetailsPage]
-class PaymentDetailsRoute extends _i2.PageRouteInfo<void> {
+/// [_i2.PaymentDetailsPage]
+class PaymentDetailsRoute extends _i3.PageRouteInfo<void> {
   const PaymentDetailsRoute()
       : super(
           PaymentDetailsRoute.name,
-          path: '/payment-details-page',
+          path: 'paymentdetails',
         );
 
   static const String name = 'PaymentDetailsRoute';
 }
 
 /// generated route for
-/// [_i1.DonationPage]
-class DonationRoute extends _i2.PageRouteInfo<void> {
+/// [_i2.DonationPage]
+class DonationRoute extends _i3.PageRouteInfo<void> {
   const DonationRoute()
       : super(
           DonationRoute.name,
-          path: '/donation-page',
+          path: 'donation',
         );
 
   static const String name = 'DonationRoute';
 }
 
 /// generated route for
-/// [_i1.SignUpFormPage]
-class SignUpFormRoute extends _i2.PageRouteInfo<void> {
+/// [_i2.SignUpFormPage]
+class SignUpFormRoute extends _i3.PageRouteInfo<void> {
   const SignUpFormRoute()
       : super(
           SignUpFormRoute.name,
-          path: '/sign-up-form-page',
+          path: 'signup',
         );
 
   static const String name = 'SignUpFormRoute';
