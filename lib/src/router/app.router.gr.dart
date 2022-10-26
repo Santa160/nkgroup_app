@@ -11,44 +11,51 @@
 // ignore_for_file: type=lint
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i2;
-import 'package:flutter/material.dart' as _i3;
+import 'package:auto_route/auto_route.dart' as _i3;
+import 'package:flutter/material.dart' as _i4;
 
 import '../pages/pages.dart' as _i1;
+import '../web.app/landing.page.dart' as _i2;
 
-class AppRouter extends _i2.RootStackRouter {
-  AppRouter([_i3.GlobalKey<_i3.NavigatorState>? navigatorKey])
+class AppRouter extends _i3.RootStackRouter {
+  AppRouter([_i4.GlobalKey<_i4.NavigatorState>? navigatorKey])
       : super(navigatorKey);
 
   @override
-  final Map<String, _i2.PageFactory> pagesMap = {
+  final Map<String, _i3.PageFactory> pagesMap = {
     LoginRoute.name: (routeData) {
-      return _i2.MaterialPageX<dynamic>(
+      return _i3.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i1.LoginPage(),
       );
     },
+    LandingRoute.name: (routeData) {
+      return _i3.MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const _i2.LandingPage(),
+      );
+    },
     HomeRoute.name: (routeData) {
-      return _i2.MaterialPageX<dynamic>(
+      return _i3.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i1.HomePage(),
       );
     },
     AddMemberRoute.name: (routeData) {
-      return _i2.MaterialPageX<dynamic>(
+      return _i3.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i1.AddMemberPage(),
       );
     },
     VerifyOtpRoute.name: (routeData) {
-      return _i2.MaterialPageX<dynamic>(
+      return _i3.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i1.VerifyOtpPage(),
       );
     },
     HelpRoute.name: (routeData) {
       final args = routeData.argsAs<HelpRouteArgs>();
-      return _i2.MaterialPageX<dynamic>(
+      return _i3.MaterialPageX<dynamic>(
         routeData: routeData,
         child: _i1.HelpPage(
           key: args.key,
@@ -58,7 +65,7 @@ class AppRouter extends _i2.RootStackRouter {
     },
     ReceiverDetailsWaitingRoute.name: (routeData) {
       final args = routeData.argsAs<ReceiverDetailsWaitingRouteArgs>();
-      return _i2.MaterialPageX<dynamic>(
+      return _i3.MaterialPageX<dynamic>(
         routeData: routeData,
         child: _i1.ReceiverDetailsWaitingPage(
           key: args.key,
@@ -67,55 +74,55 @@ class AppRouter extends _i2.RootStackRouter {
       );
     },
     ProfileRoute.name: (routeData) {
-      return _i2.MaterialPageX<dynamic>(
+      return _i3.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i1.ProfilePage(),
       );
     },
     ChangePasswordRoute.name: (routeData) {
-      return _i2.MaterialPageX<dynamic>(
+      return _i3.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i1.ChangePasswordPage(),
       );
     },
     ReceiverDetailsRoute.name: (routeData) {
-      return _i2.MaterialPageX<dynamic>(
+      return _i3.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i1.ReceiverDetailsPage(),
       );
     },
     PaymentMethodRoute.name: (routeData) {
-      return _i2.MaterialPageX<dynamic>(
+      return _i3.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i1.PaymentMethodPage(),
       );
     },
     AddPaymentMethodRoute.name: (routeData) {
-      return _i2.MaterialPageX<dynamic>(
+      return _i3.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i1.AddPaymentMethodPage(),
       );
     },
     HelpGivenDetailsRoute.name: (routeData) {
-      return _i2.MaterialPageX<dynamic>(
+      return _i3.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i1.HelpGivenDetailsPage(),
       );
     },
     PaymentDetailsRoute.name: (routeData) {
-      return _i2.MaterialPageX<dynamic>(
+      return _i3.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i1.PaymentDetailsPage(),
       );
     },
     DonationRoute.name: (routeData) {
-      return _i2.MaterialPageX<dynamic>(
+      return _i3.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i1.DonationPage(),
       );
     },
     SignUpFormRoute.name: (routeData) {
-      return _i2.MaterialPageX<dynamic>(
+      return _i3.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i1.SignUpFormPage(),
       );
@@ -123,64 +130,68 @@ class AppRouter extends _i2.RootStackRouter {
   };
 
   @override
-  List<_i2.RouteConfig> get routes => [
-        _i2.RouteConfig(
+  List<_i3.RouteConfig> get routes => [
+        _i3.RouteConfig(
           LoginRoute.name,
+          path: '/login-page',
+        ),
+        _i3.RouteConfig(
+          LandingRoute.name,
           path: '/',
         ),
-        _i2.RouteConfig(
+        _i3.RouteConfig(
           HomeRoute.name,
           path: 'home',
         ),
-        _i2.RouteConfig(
+        _i3.RouteConfig(
           AddMemberRoute.name,
           path: 'addmember',
         ),
-        _i2.RouteConfig(
+        _i3.RouteConfig(
           VerifyOtpRoute.name,
           path: 'verify',
         ),
-        _i2.RouteConfig(
+        _i3.RouteConfig(
           HelpRoute.name,
           path: 'help',
         ),
-        _i2.RouteConfig(
+        _i3.RouteConfig(
           ReceiverDetailsWaitingRoute.name,
           path: 'recieverdetailswaiting',
         ),
-        _i2.RouteConfig(
+        _i3.RouteConfig(
           ProfileRoute.name,
           path: 'profile',
         ),
-        _i2.RouteConfig(
+        _i3.RouteConfig(
           ChangePasswordRoute.name,
           path: 'change',
         ),
-        _i2.RouteConfig(
+        _i3.RouteConfig(
           ReceiverDetailsRoute.name,
           path: 'recieverdeatil',
         ),
-        _i2.RouteConfig(
+        _i3.RouteConfig(
           PaymentMethodRoute.name,
           path: 'paymethod',
         ),
-        _i2.RouteConfig(
+        _i3.RouteConfig(
           AddPaymentMethodRoute.name,
           path: 'addpaymentmethod',
         ),
-        _i2.RouteConfig(
+        _i3.RouteConfig(
           HelpGivenDetailsRoute.name,
           path: 'helpgiven',
         ),
-        _i2.RouteConfig(
+        _i3.RouteConfig(
           PaymentDetailsRoute.name,
           path: 'paymentdetails',
         ),
-        _i2.RouteConfig(
+        _i3.RouteConfig(
           DonationRoute.name,
           path: 'donation',
         ),
-        _i2.RouteConfig(
+        _i3.RouteConfig(
           SignUpFormRoute.name,
           path: 'signup',
         ),
@@ -189,19 +200,31 @@ class AppRouter extends _i2.RootStackRouter {
 
 /// generated route for
 /// [_i1.LoginPage]
-class LoginRoute extends _i2.PageRouteInfo<void> {
+class LoginRoute extends _i3.PageRouteInfo<void> {
   const LoginRoute()
       : super(
           LoginRoute.name,
-          path: '/',
+          path: '/login-page',
         );
 
   static const String name = 'LoginRoute';
 }
 
 /// generated route for
+/// [_i2.LandingPage]
+class LandingRoute extends _i3.PageRouteInfo<void> {
+  const LandingRoute()
+      : super(
+          LandingRoute.name,
+          path: '/',
+        );
+
+  static const String name = 'LandingRoute';
+}
+
+/// generated route for
 /// [_i1.HomePage]
-class HomeRoute extends _i2.PageRouteInfo<void> {
+class HomeRoute extends _i3.PageRouteInfo<void> {
   const HomeRoute()
       : super(
           HomeRoute.name,
@@ -213,7 +236,7 @@ class HomeRoute extends _i2.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i1.AddMemberPage]
-class AddMemberRoute extends _i2.PageRouteInfo<void> {
+class AddMemberRoute extends _i3.PageRouteInfo<void> {
   const AddMemberRoute()
       : super(
           AddMemberRoute.name,
@@ -225,7 +248,7 @@ class AddMemberRoute extends _i2.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i1.VerifyOtpPage]
-class VerifyOtpRoute extends _i2.PageRouteInfo<void> {
+class VerifyOtpRoute extends _i3.PageRouteInfo<void> {
   const VerifyOtpRoute()
       : super(
           VerifyOtpRoute.name,
@@ -237,9 +260,9 @@ class VerifyOtpRoute extends _i2.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i1.HelpPage]
-class HelpRoute extends _i2.PageRouteInfo<HelpRouteArgs> {
+class HelpRoute extends _i3.PageRouteInfo<HelpRouteArgs> {
   HelpRoute({
-    _i3.Key? key,
+    _i4.Key? key,
     required String appBarTile,
   }) : super(
           HelpRoute.name,
@@ -259,7 +282,7 @@ class HelpRouteArgs {
     required this.appBarTile,
   });
 
-  final _i3.Key? key;
+  final _i4.Key? key;
 
   final String appBarTile;
 
@@ -272,9 +295,9 @@ class HelpRouteArgs {
 /// generated route for
 /// [_i1.ReceiverDetailsWaitingPage]
 class ReceiverDetailsWaitingRoute
-    extends _i2.PageRouteInfo<ReceiverDetailsWaitingRouteArgs> {
+    extends _i3.PageRouteInfo<ReceiverDetailsWaitingRouteArgs> {
   ReceiverDetailsWaitingRoute({
-    _i3.Key? key,
+    _i4.Key? key,
     required bool isApproved,
   }) : super(
           ReceiverDetailsWaitingRoute.name,
@@ -294,7 +317,7 @@ class ReceiverDetailsWaitingRouteArgs {
     required this.isApproved,
   });
 
-  final _i3.Key? key;
+  final _i4.Key? key;
 
   final bool isApproved;
 
@@ -306,7 +329,7 @@ class ReceiverDetailsWaitingRouteArgs {
 
 /// generated route for
 /// [_i1.ProfilePage]
-class ProfileRoute extends _i2.PageRouteInfo<void> {
+class ProfileRoute extends _i3.PageRouteInfo<void> {
   const ProfileRoute()
       : super(
           ProfileRoute.name,
@@ -318,7 +341,7 @@ class ProfileRoute extends _i2.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i1.ChangePasswordPage]
-class ChangePasswordRoute extends _i2.PageRouteInfo<void> {
+class ChangePasswordRoute extends _i3.PageRouteInfo<void> {
   const ChangePasswordRoute()
       : super(
           ChangePasswordRoute.name,
@@ -330,7 +353,7 @@ class ChangePasswordRoute extends _i2.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i1.ReceiverDetailsPage]
-class ReceiverDetailsRoute extends _i2.PageRouteInfo<void> {
+class ReceiverDetailsRoute extends _i3.PageRouteInfo<void> {
   const ReceiverDetailsRoute()
       : super(
           ReceiverDetailsRoute.name,
@@ -342,7 +365,7 @@ class ReceiverDetailsRoute extends _i2.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i1.PaymentMethodPage]
-class PaymentMethodRoute extends _i2.PageRouteInfo<void> {
+class PaymentMethodRoute extends _i3.PageRouteInfo<void> {
   const PaymentMethodRoute()
       : super(
           PaymentMethodRoute.name,
@@ -354,7 +377,7 @@ class PaymentMethodRoute extends _i2.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i1.AddPaymentMethodPage]
-class AddPaymentMethodRoute extends _i2.PageRouteInfo<void> {
+class AddPaymentMethodRoute extends _i3.PageRouteInfo<void> {
   const AddPaymentMethodRoute()
       : super(
           AddPaymentMethodRoute.name,
@@ -366,7 +389,7 @@ class AddPaymentMethodRoute extends _i2.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i1.HelpGivenDetailsPage]
-class HelpGivenDetailsRoute extends _i2.PageRouteInfo<void> {
+class HelpGivenDetailsRoute extends _i3.PageRouteInfo<void> {
   const HelpGivenDetailsRoute()
       : super(
           HelpGivenDetailsRoute.name,
@@ -378,7 +401,7 @@ class HelpGivenDetailsRoute extends _i2.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i1.PaymentDetailsPage]
-class PaymentDetailsRoute extends _i2.PageRouteInfo<void> {
+class PaymentDetailsRoute extends _i3.PageRouteInfo<void> {
   const PaymentDetailsRoute()
       : super(
           PaymentDetailsRoute.name,
@@ -390,7 +413,7 @@ class PaymentDetailsRoute extends _i2.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i1.DonationPage]
-class DonationRoute extends _i2.PageRouteInfo<void> {
+class DonationRoute extends _i3.PageRouteInfo<void> {
   const DonationRoute()
       : super(
           DonationRoute.name,
@@ -402,7 +425,7 @@ class DonationRoute extends _i2.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i1.SignUpFormPage]
-class SignUpFormRoute extends _i2.PageRouteInfo<void> {
+class SignUpFormRoute extends _i3.PageRouteInfo<void> {
   const SignUpFormRoute()
       : super(
           SignUpFormRoute.name,

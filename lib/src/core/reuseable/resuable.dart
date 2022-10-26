@@ -158,79 +158,81 @@ Drawer myDrawer(BuildContext context) {
   return Drawer(
     child: BackgroundWrapper(
       child: SafeArea(
-        child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                  AppConfig.appName,
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 32,
-                      fontWeight: FontWeight.bold),
-                ),
-                mediumGap(),
-                ...FakeData.drawerlist.map((e) {
-                  return InkWell(
-                    onTap: () {
-                      if (e['title'] == 'Add New Member') {
-                        context.router.push(const AddMemberRoute());
-                      }
-                      if (e['title'] == 'Payment Method') {
-                        context.router.push(const PaymentMethodRoute());
-                      }
-                      if (e['title'] == 'My Profile') {
-                        context.router.push(const ProfileRoute());
-                      }
-                      if (e['title'] == 'Change Password') {
-                        context.router.push(const ChangePasswordRoute());
-                      }
-                    },
-                    child: IgnorePointer(
-                      ignoring: !e['dropdonw'],
-                      child: ExpansionTile(
-                        expandedCrossAxisAlignment: CrossAxisAlignment.start,
-                        leading: e["icon"],
-                        title: Text(
-                          e['title'],
-                          style: const TextStyle(
-                            color: Colors.white,
+        child: SingleChildScrollView(
+          child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    AppConfig.appName,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 32,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  mediumGap(),
+                  ...FakeData.drawerlist.map((e) {
+                    return InkWell(
+                      onTap: () {
+                        if (e['title'] == 'Add New Member') {
+                          context.router.push(const AddMemberRoute());
+                        }
+                        if (e['title'] == 'Payment Method') {
+                          context.router.push(const PaymentMethodRoute());
+                        }
+                        if (e['title'] == 'My Profile') {
+                          context.router.push(const ProfileRoute());
+                        }
+                        if (e['title'] == 'Change Password') {
+                          context.router.push(const ChangePasswordRoute());
+                        }
+                      },
+                      child: IgnorePointer(
+                        ignoring: !e['dropdonw'],
+                        child: ExpansionTile(
+                          expandedCrossAxisAlignment: CrossAxisAlignment.start,
+                          leading: e["icon"],
+                          title: Text(
+                            e['title'],
+                            style: const TextStyle(
+                              color: Colors.white,
+                            ),
                           ),
+                          trailing: !e['dropdonw']
+                              ? const SizedBox()
+                              : const Icon(Icons.arrow_drop_down),
+                          children: [
+                            InkWell(
+                              onTap: () => context.router
+                                  .push(HelpRoute(appBarTile: "Help Given")),
+                              child: const Padding(
+                                padding: EdgeInsets.all(15),
+                                child: Text(
+                                  "Help Given",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ),
+                            ),
+                            InkWell(
+                              onTap: () => context.router
+                                  .push(HelpRoute(appBarTile: "Help Received")),
+                              child: const Padding(
+                                padding: EdgeInsets.all(15),
+                                child: Text(
+                                  "Help Received",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                        trailing: !e['dropdonw']
-                            ? const SizedBox()
-                            : const Icon(Icons.arrow_drop_down),
-                        children: [
-                          InkWell(
-                            onTap: () => context.router
-                                .push(HelpRoute(appBarTile: "Help Given")),
-                            child: const Padding(
-                              padding: EdgeInsets.all(15),
-                              child: Text(
-                                "Help Given",
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ),
-                          ),
-                          InkWell(
-                            onTap: () => context.router
-                                .push(HelpRoute(appBarTile: "Help Received")),
-                            child: const Padding(
-                              padding: EdgeInsets.all(15),
-                              child: Text(
-                                "Help Received",
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ),
-                          ),
-                        ],
                       ),
-                    ),
-                  );
-                }).toList()
-              ],
-            )),
+                    );
+                  }).toList()
+                ],
+              )),
+        ),
       ),
     ),
   );

@@ -11,7 +11,8 @@ class KTHEME {
       inputDecorationTheme: inputDecoration(),
       textTheme: _textTheme(),
       elevatedButtonTheme: _buttonTheme(),
-      scaffoldBackgroundColor: _scafoldBg(),
+      // scaffoldBackgroundColor: _scafoldBg(),
+
       appBarTheme: _appBarTheme(),
       fontFamily: 'Roboto',
       unselectedWidgetColor: Colors.grey,
