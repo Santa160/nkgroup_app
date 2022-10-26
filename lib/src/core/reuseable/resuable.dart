@@ -1,26 +1,27 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:country_calling_code_picker/country.dart';
 import 'package:country_calling_code_picker/country_code_picker.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:nkgroup/src/core/core.dart';
 import 'package:nkgroup/src/core/reuseable/bg.dart';
 import 'package:nkgroup/src/fake%20data/fake_data.dart';
 import 'package:nkgroup/src/router/router.dart';
 
-Column appWelcome() {
+Column appWelcome(Color textColor) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       Text(
         "Welcome to".toUpperCase(),
-        style: const TextStyle(
-          color: Colors.white,
+        style: TextStyle(
+          color: textColor,
         ),
       ),
-      const Text(
+      Text(
         AppConfig.appName,
         style: TextStyle(
-            color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),
+            color: textColor, fontSize: 30, fontWeight: FontWeight.bold),
       ),
     ],
   );
@@ -29,7 +30,7 @@ Column appWelcome() {
 kMobileField(BuildContext context, Country? selectedCountry) {
   return Container(
     decoration: BoxDecoration(
-      color: Colors.white.withOpacity(0.3),
+      color: kIsWeb ? Colors.white : Colors.white.withOpacity(0.3),
       borderRadius: const BorderRadius.all(
         Radius.circular(5),
       ),
@@ -78,7 +79,7 @@ kMobileField(BuildContext context, Country? selectedCountry) {
 Container kPasswordField(String hint) {
   return Container(
     decoration: BoxDecoration(
-      color: Colors.white.withOpacity(0.3),
+      color: Colors.white.withOpacity(kIsWeb ? 1 : 0.3),
       borderRadius: const BorderRadius.all(
         Radius.circular(5),
       ),
@@ -106,7 +107,7 @@ Container kPasswordField(String hint) {
 Container kTextField(String hint) {
   return Container(
     decoration: BoxDecoration(
-      color: Colors.white.withOpacity(0.3),
+      color: Colors.white.withOpacity(kIsWeb ? 1 : 0.3),
       borderRadius: const BorderRadius.all(
         Radius.circular(5),
       ),
@@ -126,9 +127,13 @@ Container kTextField(String hint) {
 SizedBox kSubmitButton(
     BuildContext context, VoidCallback onpress, String title) {
   return SizedBox(
-      height: 50,
+      height: 45,
       width: MediaQuery.of(context).size.width,
-      child: ElevatedButton(onPressed: onpress, child: Text(title)));
+      child: ElevatedButton(
+          style:
+              ButtonStyle(backgroundColor: MaterialStateProperty.all(dcolor)),
+          onPressed: onpress,
+          child: Text(title)));
 }
 
 AppBar appBar(BuildContext context, String title) {

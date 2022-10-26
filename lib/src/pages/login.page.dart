@@ -45,7 +45,7 @@ class _LoginPageState extends State<LoginPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    appWelcome(),
+                    appWelcome(Colors.white),
                     mediumGap(),
                     SizedBox(
                       width: MediaQuery.of(context).size.width / 2,

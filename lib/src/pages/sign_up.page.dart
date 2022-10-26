@@ -44,7 +44,7 @@ class _SignUpFormPageState extends State<SignUpFormPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  appWelcome(),
+                  appWelcome(Colors.white),
                   mediumGap(),
                   kTextField('Referral ID'),
                   smallGap(),

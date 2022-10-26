@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:nkgroup/src/core/core.dart';
 import 'package:nkgroup/src/extra/platform.dart';
@@ -6,14 +7,14 @@ class KTHEME {
   var platform = PlatformInfo().getCurrentPlatformType();
   ThemeData lightThemeData(BuildContext context) {
     return ThemeData(
-      // textSelectionTheme: const TextSelectionThemeData(cursorColor: dcolor),
+      textSelectionTheme: const TextSelectionThemeData(cursorColor: dcolor),
       inputDecorationTheme: inputDecoration(),
-      // textTheme: _textTheme(),
-      // elevatedButtonTheme: _buttonTheme(),
+      textTheme: _textTheme(),
+      elevatedButtonTheme: _buttonTheme(),
       scaffoldBackgroundColor: _scafoldBg(),
       appBarTheme: _appBarTheme(),
       fontFamily: 'Roboto',
-      // unselectedWidgetColor: Colors.grey,
+      unselectedWidgetColor: Colors.grey,
       expansionTileTheme: const ExpansionTileThemeData(
         iconColor: Colors.white,
         collapsedIconColor: Colors.white,
@@ -25,8 +26,8 @@ class KTHEME {
     );
   }
 
-  AppBarTheme _appBarTheme() => AppBarTheme(
-      foregroundColor: isWeb() ? dcolor : wbgcolor,
+  AppBarTheme _appBarTheme() => const AppBarTheme(
+      foregroundColor: kIsWeb ? bcolor : wbgcolor,
       backgroundColor: Colors.transparent,
       elevation: 0);
 
@@ -46,30 +47,33 @@ class KTHEME {
       );
 
   InputDecorationTheme inputDecoration() {
-    return InputDecorationTheme(
-      fillColor: _textFieldBg(),
+    return const InputDecorationTheme(
+      fillColor: kIsWeb ? Colors.white : Colors.transparent,
       filled: true,
       focusColor: dcolor,
       suffixIconColor: Colors.white,
       border: InputBorder.none,
-      hintStyle: const TextStyle(color: Colors.white),
+      hintStyle: TextStyle(color: kIsWeb ? Colors.grey : Colors.white),
     );
   }
 
   _textTheme() {
     return const TextTheme(
+
         // headline3: const TextStyle(color: Colors.white),
+        displayLarge:
+            TextStyle(color: bcolor, fontSize: 30, fontWeight: FontWeight.bold),
         titleLarge: TextStyle(
-          color: Colors.red,
+          color: Colors.white,
         ),
         titleMedium: TextStyle(
-          color: Colors.red,
+          color: Colors.white, // > also use in hint default
         ),
-        bodySmall: TextStyle(color: Colors.red));
+        bodySmall: TextStyle(color: bcolor, fontWeight: FontWeight.bold));
   }
 
   Color _scafoldBg() {
-    if (isWeb()) {
+    if (kIsWeb) {
       return wbgcolor;
     } else {
       return Colors.transparent;
@@ -77,20 +81,19 @@ class KTHEME {
   }
 
   Color _textFieldBg() {
-    if (platform.name == TargetPlatform.android.name ||
-        platform.name == TargetPlatform.iOS.name) {
-      return Colors.red;
+    if (kIsWeb) {
+      return Colors.white;
     } else {
-      return Colors.yellow;
+      return Colors.white.withOpacity(0.3);
     }
   }
 
-  bool isWeb() {
-    if (platform.name == TargetPlatform.android.name ||
-        platform.name == TargetPlatform.iOS.name) {
-      return false;
-    } else {
-      return true;
-    }
-  }
+  // bool isWeb() {
+  //   if (platform.name == TargetPlatform.android.name ||
+  //       platform.name == TargetPlatform.iOS.name) {
+  //     return false;
+  //   } else {
+  //     return true;
+  //   }
+  // }
 }

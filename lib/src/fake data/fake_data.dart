@@ -15,7 +15,7 @@ class FakeData {
     {
       "title": "My Profile",
       "icon": Icon(
-        Icons.people,
+        Icons.person,
         color: Colors.white,
       ),
       "dropdonw": false
@@ -31,7 +31,7 @@ class FakeData {
     {
       "title": "Payment Method",
       "icon": Icon(
-        Icons.people,
+        Icons.account_balance,
         color: Colors.white,
       ),
       "dropdonw": false
@@ -39,7 +39,7 @@ class FakeData {
     {
       "title": "Change Password",
       "icon": Icon(
-        Icons.people,
+        Icons.lock_reset,
         color: Colors.white,
       ),
       "dropdonw": false
@@ -47,7 +47,7 @@ class FakeData {
     {
       "title": "My Referrals",
       "icon": Icon(
-        Icons.people,
+        Icons.hub,
         color: Colors.white,
       ),
       "dropdonw": false
@@ -55,7 +55,7 @@ class FakeData {
     {
       "title": "Fund Raised",
       "icon": Icon(
-        Icons.people,
+        Icons.savings,
         color: Colors.white,
       ),
       "dropdonw": false
@@ -63,7 +63,7 @@ class FakeData {
     {
       "title": "Statement",
       "icon": Icon(
-        Icons.people,
+        Icons.text_snippet,
         color: Colors.white,
       ),
       "dropdonw": true
@@ -71,7 +71,7 @@ class FakeData {
     {
       "title": "Message",
       "icon": Icon(
-        Icons.people,
+        Icons.comment,
         color: Colors.white,
       ),
       "dropdonw": false

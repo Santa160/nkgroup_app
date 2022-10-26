@@ -1,16 +1,13 @@
 import 'package:auto_route/annotations.dart';
 import 'package:nkgroup/src/pages/pages.dart';
 
-import '../extra/testing.page.dart';
-
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
   routes: [
-    AutoRoute(page: TestingPage, path: '/', initial: true),
     AutoRoute(
       page: LoginPage,
-      // path: '/',
-      // initial: true,
+      path: '/',
+      initial: true,
     ),
     AutoRoute(page: HomePage, path: 'home'),
     AutoRoute(page: AddMemberPage, path: 'addmember'),
