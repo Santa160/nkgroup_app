@@ -89,8 +89,6 @@ Container kPasswordField(String hint) {
       child: Center(
         child: TextFormField(
           obscureText: true,
-
-          keyboardType: TextInputType.phone,
           // textAlignVertical: TextAlignVertical.center,
           decoration: InputDecoration(
             suffixIcon: const Icon(
@@ -104,7 +102,7 @@ Container kPasswordField(String hint) {
   );
 }
 
-Container kTextField(String hint) {
+Widget kTextField(String hint) {
   return Container(
     decoration: BoxDecoration(
       color: Colors.white.withOpacity(kIsWeb ? 1 : 0.3),
@@ -116,6 +114,51 @@ Container kTextField(String hint) {
       padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Center(
         child: TextFormField(
+          decoration: InputDecoration(hintText: hint),
+          // textAlignVertical: TextAlignVertical.center,
+        ),
+      ),
+    ),
+  );
+}
+
+Widget kTextFieldEmail(String hint) {
+  return Container(
+    decoration: BoxDecoration(
+      color: Colors.white.withOpacity(kIsWeb ? 1 : 0.3),
+      borderRadius: const BorderRadius.all(
+        Radius.circular(5),
+      ),
+    ),
+    child: Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 15),
+      child: Center(
+        child: TextFormField(
+          keyboardType: TextInputType.emailAddress,
+          decoration: InputDecoration(hintText: hint),
+          // textAlignVertical: TextAlignVertical.center,
+        ),
+      ),
+    ),
+  );
+}
+
+Widget kTextFieldnumber(
+    {required String hint,
+    required TextEditingController controller,
+    required VoidCallback onpress}) {
+  return Container(
+    decoration: BoxDecoration(
+      color: Colors.white.withOpacity(kIsWeb ? 1 : 0.3),
+      borderRadius: const BorderRadius.all(
+        Radius.circular(5),
+      ),
+    ),
+    child: Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 15),
+      child: Center(
+        child: TextFormField(
+          keyboardType: TextInputType.number,
           decoration: InputDecoration(hintText: hint),
           // textAlignVertical: TextAlignVertical.center,
         ),
@@ -236,4 +279,28 @@ Drawer myDrawer(BuildContext context) {
       ),
     ),
   );
+}
+
+class TextFieldWrapper extends StatelessWidget {
+  const TextFieldWrapper({super.key, required this.child});
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10),
+      child: Container(
+          height: 50,
+          decoration: BoxDecoration(
+            color: Colors.white.withOpacity(kIsWeb ? 1 : 0.3),
+            borderRadius: const BorderRadius.all(
+              Radius.circular(5),
+            ),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: child,
+          )),
+    );
+  }
 }

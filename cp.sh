@@ -1,1 +1,0 @@
-flutter build web && sudo cp -r build/web/* /opt/lampp/htdocs/
